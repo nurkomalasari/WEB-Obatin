@@ -17,8 +17,25 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/get_pesanan','PesananController@getPesanan');
-Route::get('/get_konsumen','DKonsumenController@getkonsumen');
-Route::get('/get_konsumen/{id}','DKonsumenController@getkonsumen');
-Route::post('/post_konsumen','DKonsumenController@postkonsumen');
+Route::get('konsumens', 'API\ApiKonsumenController@getkonsumenAll');
+Route::get('createKonsumen/{id}', 'API\ApiKonsumenController@getKonsumen');
+Route::post('konsumen', 'API\ApiKonsumenController@createKonsumen');
+Route::put('konsumen-update/{id}', 'API\ApiKonsumenController@updateKonsumen');
+Route::delete('konsumen-delete/{id}','API\ApiKonsumenController@deleteKonsumen');
+
+Route::get('get-obatAll', 'API\ApiObatController@getobatAll');
+Route::get('get-obat/{id}', 'API\ApiObatController@getobat');
+Route::post('obat-create', 'API\ApiObatController@createobat');
+Route::put('obat-update/{id}', 'API\ApiObatController@updateobat');
+Route::delete('obat-delete/{id}','API\ApiObatController@deleteobat');
+
+// login
+Route::post('login', 'API\ApiLoginController@login');
+
+//Kategori
+Route::get('get-kategoriAll', 'API\ApiObatController@getKonsumenAll');
+Route::get('get-kategori/{id}', 'API\ApiObatController@getKategori');
+Route::post('create-Kategori', 'API\ApiObatController@createKategori');
+Route::put('update-kategori/{id}', 'API\ApiObatController@updateKategori');
+Route::delete('delete-kategori/{id}','API\ApiObatController@deleteKategori');
 

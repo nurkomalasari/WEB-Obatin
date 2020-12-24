@@ -54,7 +54,8 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-danger"><a href="/">OBATIN</a></h1>
+        <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo1.png') }}" width="200px" alt="">
+
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -87,6 +88,7 @@
         <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
           <div>
             <h1>Jasa Pemesanan dan Pembelian Obat</h1>
+            <p>Aplikasi Sistem Informasi Obatin ditujukan kepada Masyarakat guna memudahkan Masyarakat dalam mencari Apotek dan mencari Obat. Serta untuk Apotek guna memudahkan Apoteker dalam melakukan Pengelolaan Transaksi, Pencatatan Nota.</p>
 
           </div>
         </div>

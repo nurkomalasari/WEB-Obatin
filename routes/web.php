@@ -119,6 +119,7 @@ Route::group(['middleware'=>'auth:konsumen'],function(){
     route::get('history/{id}', 'HistoryController@detail');
     route::post('/upload-buktiTF/{id}', 'KonfirmasiPembayaranController@bukti_tf');
     route::get('upload_bukti/{id}', 'KonfirmasiPembayaranController@upload');
+    Route::get('cetak-struk/{id}','HistoryController@cetakPDF');
 
 
 
@@ -128,7 +129,13 @@ Route::group(['middleware'=>'auth:konsumen'],function(){
 Route::group(['middleware'=>'guest'],function(){
 
     Route::get('/masuk','login@index');
+    Route::get('/register','login@register');
     Route::post('/kirim', 'login@masuk');
+    Route::post('/konsumen/register','login@store');
+    Route::post('/kritik','KritikController@store');
+
+
+
 
 });
 

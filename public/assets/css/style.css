@@ -10,15 +10,15 @@
 --------------------------------------------------------------*/
 body {
     font-family: "Open Sans", sans-serif;
-    color: #da8490;
+    color: #d60606;
   }
 
   a {
-    color:  #e21d4e;
+    color:  #c90101;
   }
 
   a:hover {
-    color:  #e21d4e;
+    color:  #d60505;
     text-decoration: none;
   }
 
@@ -37,7 +37,7 @@ body {
     border-radius: 50px;
     right: 15px;
     bottom: 15px;
-    background:  #e21d4e;
+    background:  #c90101;
     color: #fff;
     transition: display 0.5s ease-in-out;
     z-index: 99999;
@@ -52,7 +52,7 @@ body {
 
   .back-to-top:hover {
     color: #fff;
-    background:  #e21d4e;
+    background:  #c90101;
     transition: background 0.2s ease-in-out;
   }
 
@@ -90,7 +90,7 @@ body {
   }
 
   #header .logo h1 a, #header .logo h1 a:hover {
-    color: #e21d4e;
+    color: #c90101;
     text-decoration: none;
   }
 
@@ -119,7 +119,7 @@ body {
   .nav-menu a {
     display: block;
     position: relative;
-    color:  #e21d4e;
+    color:  #c90101;
     padding: 12px 15px;
     transition: 0.3s;
     font-size: 14px;
@@ -127,12 +127,12 @@ body {
   }
 
   .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-    color: #e21d4e;
+    color: #c90101;
     text-decoration: none;
   }
 
   .nav-menu .get-started a {
-    background: #e21d4e;
+    background: #c90101;
     color: #fff;
     border-radius: 50px;
     margin: 0 15px;
@@ -140,7 +140,7 @@ body {
   }
 
   .nav-menu .get-started a:hover {
-    background: #e21d4e;
+    background: #c90101;
     color: #fff;
   }
 
@@ -178,7 +178,7 @@ body {
   }
 
   .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
-    color:#e21d4e;
+    color:#c90101;
   }
 
   .nav-menu .drop-down > a:after {
@@ -238,7 +238,7 @@ body {
   }
 
   .mobile-nav-toggle i {
-    color: #e21d4e;
+    color:#c90101;
   }
 
   .mobile-nav {
@@ -273,7 +273,7 @@ body {
   }
 
   .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-    color: #e21d4e;
+    color:#c90101;
     text-decoration: none;
   }
 
@@ -313,7 +313,7 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: rgba(243, 86, 107, 0.7);
+    background: rgba(196, 0, 26, 0.7);
     overflow: hidden;
     display: none;
     transition: ease-in-out 0.2s;
@@ -351,7 +351,7 @@ body {
     width: 250%;
     height: 200%;
     z-index: -1;
-    background-color: #e8ecf5;
+    background-color: #db4d4d;
     transform: skewY(135deg);
   }
 
@@ -360,12 +360,12 @@ body {
     font-size: 48px;
     font-weight: 500;
     line-height: 56px;
-    color: #e21d4e;
+    color: #c90101;
     font-family: "Poppins", sans-serif;
   }
 
   #hero h2 {
-    color: #e21d4e;
+    color: #c90101;
     margin-bottom: 50px;
     font-size: 20px;
   }
@@ -379,12 +379,12 @@ body {
     border-radius: 3px;
     transition: 0.5s;
     color: #fff;
-    background: #e21d4e;
+    background: #c90101;
     position: relative;
   }
 
   #hero .download-btn:hover {
-    background: #e21d4e;
+    background: #c90101;
   }
 
   #hero .download-btn i {
@@ -456,7 +456,7 @@ body {
     font-weight: 400;
     margin-bottom: 20px;
     padding-bottom: 0;
-    color: #e21d4e;
+    color: #c90101;
     font-family: "Poppins", sans-serif;
   }
 
@@ -494,7 +494,7 @@ body {
   .breadcrumbs ol li + li::before {
     display: inline-block;
     padding-right: 10px;
-    color: #e21d4e;
+    color: #c90101;
     content: "/";
   }
 
@@ -530,12 +530,12 @@ body {
   .features .content .icon-box i {
     font-size: 48px;
     float: left;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   .features .content .icon-box p {
     font-size: 15px;
-    color: #db4961;
+    color:#c90101;
     margin-left: 60px;
   }
 
@@ -564,7 +564,7 @@ body {
   .details .content h3 {
     font-weight: 700;
     font-size: 32px;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   .details .content ul {
@@ -579,7 +579,7 @@ body {
   .details .content ul i {
     font-size: 20px;
     padding-right: 4px;
-    color: #e21d4e;
+    color:#c90101;
   }
 
   .details .content p:last-child {
@@ -612,7 +612,7 @@ body {
   }
 
   .gallery .owl-dot.active {
-    background-color: #e21d4e !important;
+    background-color: #c90101 !important;
   }
 
   .gallery .gallery-carousel {
@@ -625,7 +625,7 @@ body {
 
   @media (min-width: 992px) {
     .gallery .gallery-carousel .center {
-      border: 6px solid #e21d4e;
+      border: 6px solid #c90101;
       padding: 4px;
       background: #fff;
       z-index: 1;
@@ -669,12 +669,12 @@ body {
 
   .testimonials .testimonial-item h4 {
     font-size: 14px;
-    color: #e21d4e;
+    color: #c90101;
     margin: 0;
   }
 
   .testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
-    color: #e8ecf5;
+    color: #c90101;
     font-size: 26px;
   }
 
@@ -707,11 +707,11 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ddd !important;
+    background-color: #c90101!important;
   }
 
   .testimonials .owl-dot.active {
-    background-color: #e21d4e !important;
+    background-color: #c90101 !important;
   }
 
   @media (max-width: 767px) {
@@ -751,14 +751,14 @@ body {
 
   .pricing h4 {
     font-size: 46px;
-    color: #e21d4e;
+    color: #c90101;
     font-weight: 400;
     font-family: "Open Sans", sans-serif;
     margin-bottom: 25px;
   }
 
   .pricing h4 span {
-    color: #e21d4e;
+    color: #c90101;
     font-size: 18px;
     display: block;
   }
@@ -766,7 +766,7 @@ body {
   .pricing ul {
     padding: 0;
     list-style: none;
-    color: #e21d4e;
+    color: #c90101;
     text-align: left;
     line-height: 20px;
   }
@@ -776,13 +776,13 @@ body {
   }
 
   .pricing ul i {
-    color: #e21d4e;
+    color:#c90101;
     font-size: 18px;
     padding-right: 4px;
   }
 
   .pricing ul .na {
-    color: #ccc;
+    color: #c90101;
   }
 
   .pricing ul .na i {
@@ -794,7 +794,7 @@ body {
   }
 
   .pricing .get-started-btn {
-    background: #e21d4e;
+    background: #c90101;
     display: inline-block;
     padding: 6px 30px;
     border-radius: 20px;
@@ -807,7 +807,7 @@ body {
   }
 
   .pricing .get-started-btn:hover {
-    background: #e21d4e;
+    background: #c90101;
   }
 
   .pricing .featured {
@@ -816,11 +816,11 @@ body {
   }
 
   .pricing .featured .get-started-btn {
-    background:#e21d4e;
+    background:#c90101;
   }
 
   .pricing .featured .get-started-btn:hover {
-    background:#e21d4e;
+    background:#ff0f0f;
   }
 
   @media (max-width: 992px) {
@@ -883,7 +883,7 @@ body {
     position: absolute;
     right: 0;
     left: 20px;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   .faq .accordion-list .icon-show, .faq .accordion-list .icon-close {
@@ -907,7 +907,7 @@ body {
   }
 
   .faq .accordion-list a.collapsed:hover {
-    color: #e21d4e;
+    color: #c90101;
   }
 
   .faq .accordion-list a.collapsed .icon-show {
@@ -930,14 +930,14 @@ body {
   .contact .info {
     padding: 20px 40px;
     background: #f1f3f6;
-    color: #e21d4e;
+    color: #c90101;
     text-align: center;
     border: 1px solid #fff;
   }
 
   .contact .info i {
     font-size: 48px;
-    color:#e21d4e;
+    color:#c90101;
     margin-bottom: 15px;
   }
 
@@ -969,7 +969,7 @@ body {
   .contact .php-email-form .error-message {
     display: none;
     color: #fff;
-    background: #ed3c0d;
+    background: #c90101;
     text-align: left;
     padding: 15px;
     font-weight: 600;
@@ -982,7 +982,7 @@ body {
   .contact .php-email-form .sent-message {
     display: none;
     color: #fff;
-    background: #e21d4e;
+    background: #9b9b9b;
     text-align: center;
     padding: 15px;
     font-weight: 600;
@@ -1011,7 +1011,7 @@ body {
   .contact .php-email-form label {
     font-family: "Poppins", sans-serif;
     margin-bottom: 5px;
-    color:  #e21d4e;
+    color:  #c90101;
   }
 
   .contact .php-email-form input, .contact .php-email-form textarea {
@@ -1021,7 +1021,7 @@ body {
   }
 
   .contact .php-email-form input::focus, .contact .php-email-form textarea::focus {
-    background-color: #e21d4e;
+    background-color: #c90101;
   }
 
   .contact .php-email-form input {
@@ -1034,16 +1034,16 @@ body {
 
   .contact .php-email-form button[type="submit"] {
     background: #fff;
-    border: 2px solid #e21d4e;
+    border: 2px solid #c90101;
     padding: 10px 24px;
-    color: #e21d4e;
+    color:#c90101;
     transition: 0.4s;
     border-radius: 50px;
     margin-top: 5px;
   }
 
   .contact .php-email-form button[type="submit"]:hover {
-    background: #e21d4e;
+    background:#c90101;
     color: #fff;
   }
 
@@ -1083,7 +1083,7 @@ body {
   #footer {
     background: #fff;
     padding: 0 0 30px 0;
-    color: #e21d4e;
+    color: #c90101;
     font-size: 14px;
     background: #eff2f8;
   }
@@ -1101,7 +1101,7 @@ body {
     padding: 0;
     line-height: 1;
     font-weight: 600;
-    color: #e21d4e;
+    color:#c90101;
   }
 
   #footer .footer-newsletter form {
@@ -1129,7 +1129,7 @@ body {
     background: none;
     font-size: 16px;
     padding: 0 20px;
-    background: #e21d4e;
+    background: #c90101;
     color: #fff;
     transition: 0.3s;
     border-radius: 50px;
@@ -1137,7 +1137,7 @@ body {
   }
 
   #footer .footer-newsletter form input[type="submit"]:hover {
-    background: #e21d4e;
+    background: #c90101;
   }
 
   #footer .footer-top {
@@ -1155,7 +1155,7 @@ body {
     padding: 2px 0 2px 0;
     line-height: 1;
     font-weight: 700;
-    color:  #e21d4e;
+    color:  #c90101;
   }
 
   #footer .footer-top .footer-contact p {
@@ -1163,13 +1163,13 @@ body {
     line-height: 24px;
     margin-bottom: 0;
     font-family: "Raleway", sans-serif;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   #footer .footer-top h4 {
     font-size: 16px;
     font-weight: bold;
-    color: #e21d4e;
+    color: #c90101;
     position: relative;
     padding-bottom: 12px;
   }
@@ -1186,7 +1186,7 @@ body {
 
   #footer .footer-top .footer-links ul i {
     padding-right: 2px;
-    color: #e21d4e;
+    color: #c90101;
     font-size: 18px;
     line-height: 1;
   }
@@ -1202,7 +1202,7 @@ body {
   }
 
   #footer .footer-top .footer-links ul a {
-    color: #e21d4e;
+    color: #c90101;
     transition: 0.3s;
     display: inline-block;
     line-height: 1;
@@ -1210,13 +1210,13 @@ body {
 
   #footer .footer-top .footer-links ul a:hover {
     text-decoration: none;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   #footer .footer-top .social-links a {
     font-size: 18px;
     display: inline-block;
-    background: #e21d4e;
+    background: #c90101;
     color: #fff;
     line-height: 1;
     padding: 8px 0;
@@ -1237,14 +1237,14 @@ body {
   #footer .copyright {
     text-align: center;
     float: left;
-    color:  #e21d4e;
+    color:  #c90101;
   }
 
   #footer .credits {
     float: right;
     text-align: center;
     font-size: 13px;
-    color: #e21d4e;
+    color: #c90101;
   }
 
   @media (max-width: 768px) {

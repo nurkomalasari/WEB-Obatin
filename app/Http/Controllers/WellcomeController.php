@@ -9,7 +9,7 @@ use App\Obat;
 class WellcomeController extends Controller
 {
     public function tampilobat(){
-        $obat = Obat::All();
+        $obat = Obat::paginate(8);
 
 
         // dd($obat);

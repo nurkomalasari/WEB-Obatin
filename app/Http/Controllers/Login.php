@@ -7,12 +7,43 @@ use App\Admin;
 use App\Mitra;
 use App\Konsumen;
 use Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class Login extends Controller
 {
     public function index(){
 
         return view('masuk');
+    }
+    public function register(){
+
+        return view('register');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+    		'name' => 'required',
+    		'email' => 'required',
+    		'password' => 'required',
+    		'alamat' => 'required',
+    		'tanggal_lahir' => 'required',
+    		'noHp' => 'required'
+
+    	]);
+        Konsumen::create([
+    		'name' => $request->name,
+    		'email' => $request->email,
+    		'password' => Hash::make($request->password),
+    		'alamat' => $request->alamat,
+    		'tanggal_lahir' => $request->tanggal_lahir,
+    		'noHp' => $request->noHp
+
+    	]);
+
+        return redirect('/masuk');
+
     }
 
     function masuk(Request $request)

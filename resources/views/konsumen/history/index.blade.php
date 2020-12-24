@@ -52,7 +52,8 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-danger"><a href="/">OBATIN</a></h1>
+        <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo1.png') }}" width="250px" alt="">
+
 
       </div>
 
@@ -99,7 +100,7 @@
                                         <div class="col-md-12">
 
                                             <h4><i class="fa fa-shopping-cart"></i>Riwayat Pemesanan</h4>
-                                            <table class="table table-striped">
+                                            <table class="table table-border">
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
@@ -107,6 +108,9 @@
                                                         <th>Status</th>
                                                         <th>Jumlah Harga</th>
                                                         <th>Bukti Transfer</th>
+
+
+
 
                                                     </tr>
                                                 </thead>
@@ -119,8 +123,10 @@
                                                             <td>
                                                             @if ($pesanan->status==1)
                                                             <span class="badge badge-warning">Sudah Pesan & Belum Bayar</span>
-                                                            @else
-                                                            <span class="badge badge-success"> Sudah Dibayar</span>
+                                                            @elseif($pesanan->status==2)
+                                                            <span class="badge badge-success">Menunggu konfirmasi admin</span>
+                                                            @elseif($pesanan->status==3)
+                                                            <span class="badge badge-primary"> Sudah Dibayar Silahkan ambil obat ditoko</span>
                                                             @endif
                                                             </td>
                                                             <td>Rp{{number_format($pesanan->jumlah_harga+$pesanan->kode)}}</td>
@@ -129,6 +135,12 @@
                                                             <td>
                                                             <a href="{{url('history')}}/{{$pesanan->id}}" class="btn btn-danger"><i class="fa fa-info"></i> Detail</a>
                                                             </td>
+                                                            @if ($pesanan->status==3)
+                                                            <td colspan="1" align="left">
+                                                                <a href="{{url('cetak-struk')}}/{{$pesanan->id}}" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Cetak Struk</a>
+
+                                                            </td>
+                                                            @endif
                                                             @if ($pesanan->status==1)
                                                             <td>
                                                                 <a href="{{url('upload_bukti')}}/{{$pesanan->id}}" class="btn btn-danger"><i class="fa fa-mobile-alt"></i> Upload </a>
@@ -141,6 +153,10 @@
                                                         <td colspan="4" align="right"> <strong>Total Pemesanan</strong>
                                                             <td> <strong>Rp. {{ number_format($pesanan->sum('jumlah_harga'))}}</strong> </td>
                                                         </td>
+
+                                                    </tr>
+                                                    <tr>
+
 
                                                     </tr>
                                                 </tbody>

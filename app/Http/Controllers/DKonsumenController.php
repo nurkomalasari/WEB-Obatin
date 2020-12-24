@@ -170,7 +170,7 @@ class DKonsumenController extends Controller
         Konsumen::create([
     		'name' => $request->name,
     		'email' => $request->email,
-    		'password' => $request->password,
+    		'password' => Hash::make($request->password),
     		'alamat' => $request->alamat,
     		'tanggal_lahir' => $request->tanggal_lahir,
     		'noHp' => $request->noHp
@@ -217,40 +217,6 @@ class DKonsumenController extends Controller
             return redirect('/admin/konsumen');
     }
 
-    public function getkonsumen($id)
-    {
-        $konsumen = Konsumen::find($id);
-        return response()->json($konsumen);
 
-
-    }
-
-    public function postkonsumen(Request $request)
-    {
-        try {
-            $this->validate($request,[
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
-                'alamat' => 'required',
-                'tanggal_lahir' => 'required',
-                'noHp' => 'required'
-
-            ]);
-            Konsumen::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => $request->password,
-                'alamat' => $request->alamat,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'noHp' => $request->noHp,
-
-            ]);
-        } catch (\Throwable $th) {
-            throw new HttpException(500, $th->getMessage());
-
-        }
-        return $th;
-    }
 }
 

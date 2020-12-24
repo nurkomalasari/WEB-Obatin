@@ -43,7 +43,8 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-danger"><a href="/">OBATIN</a></h1>
+        <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo1.png') }}" width="250px" alt="">
+
 
       </div>
 

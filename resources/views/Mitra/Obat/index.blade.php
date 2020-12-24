@@ -136,7 +136,7 @@
                     <tbody>
                         @foreach($obat as $o)
                             <tr>
-                                <td>{{$o->id_obat}}</td>
+                                <td>{{$o->id}}</td>
                                 <td>{{$o->nama_obat}}</td>
                                 <td>{{$o->deskripsi_obat}}</td>
                                 <td>{{$o->stok}}</td>

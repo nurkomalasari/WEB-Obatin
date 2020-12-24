@@ -162,7 +162,7 @@ h6 {
 }
 
 .bg-red {
-  background: #fa4251;
+  background: #c90101;
 }
 
 /* ==========================================================================
@@ -228,11 +228,11 @@ h6 {
 }
 
 .btn--green {
-  background: #57b846;
+  background: #c90101;
 }
 
 .btn--green:hover {
-  background: #4dae3c;
+  background: #c90101;
 }
 
 /* ==========================================================================
@@ -331,29 +331,29 @@ input {
 
 .input--style-2::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #808080;
+  color: #c23737;
 }
 
 .input--style-2:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #808080;
+  color: #c23737;
   opacity: 1;
 }
 
 .input--style-2::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #808080;
+  color: #c23737;
   opacity: 1;
 }
 
 .input--style-2:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #808080;
+  color: #c23737;
 }
 
 .input--style-2:-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #808080;
+  color: #c23737;
 }
 
 /* ==========================================================================
