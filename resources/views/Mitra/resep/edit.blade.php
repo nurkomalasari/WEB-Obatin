@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kategori Obat</title>
+    <title>Mengedit Balasan Resep</title>
     <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,6 +21,8 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -82,60 +84,69 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
-                            Kategori Obat
+                           Edit data kategori
                         </h1>
 
 
-                    </div>
+
                     <div id="page-inner">
 
 
-
                <div class="row">
-                   <div class="col-md-10">
+                   <div class="col-md-9">
                        <!-- Advanced Tables -->
                        <div class="card">
                            <div class="card-action">
 
-                            KATEGORI OBAT
-                           </div>
-                           <div class="card-action">
-                                <a href="{{url('/kategori/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Tambah Kategori</i></a>
-                           </div>
-                           <div class="card-content">
-                               <div class="table-responsive">
-                               <table id="datatables" class="table table-bordered table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kategori</th>
-
-                            <th> Option</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($kategori as $k)
-                            <tr>
-                                <td>{{$k->id}}</td>
-                                <td>{{$k->name_kategori}}</td>
+                                <form role="form" method="post" action="{{ url('resep/update/'. $resep->id) }}" enctype="multipart/form-data">
+                                @csrf
+                                {{ method_field('PUT') }}
 
 
-                                <td>
-                                    <a href="/kategori/edit/{{ $k->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
-                                    <a href="/kategori/delete/{{ $k->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
+                                <div class="box-body">
+                                <div class="form-group">
 
-                        @endforeach
-                    </tbody>
-                </table>
+                                        <input type="text" name="resep" class="form-control"value="{{ $resep->resep }}" >
+                                        @if($errors->has('resep'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('resep')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" name="keterangan" class="form-control"value="{{ $resep->keterangan }}" >
+                                        @if($errors->has('keterangan'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('keterangan')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                    <label for="kategori_id">Balasan</label>
+                                    <select name="balasan" class="form-control">
+                                        <option value="">Pilih</option>
+                                        <option value=1 >Resep yang anda minta Tersedia. Silahkan datang ke Apotek </option>
+                                        <option value=2 >Resep yang anda minta tidak tersedia di Apotek</option>
+                                       </select>
+                                       <br>
+
+                            </div>
 
 
-            </div>
-        </div>
-    </div>
+                        <!-- /.box-body -->
 
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-success">Simpan</button>
+                        </div>
+                        </form>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
         </div>
 
@@ -151,7 +162,7 @@
         <p>All right reserved. Template by: <a href="https://webthemez.com/admin-template/">WebThemez.com</a></p>
         </footer>
 
-            </div>
+
 
 				<!-- /. ROW  -->
 
@@ -161,6 +172,25 @@
     <!-- </div>  -->
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#datatables").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
     <!-- jQuery Js -->
     <script src="{{asset('assets/js/jquery-1.10.2.js') }}"></script>
 
@@ -183,26 +213,7 @@
 
     <!-- Custom Js -->
     <script src="{{asset('assets/js/custom-scripts.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
 
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-    <script>
-    $(function () {
-        $("#datatables").DataTable();
-        $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        });
-    });
-    </script>
 
 </body>
 

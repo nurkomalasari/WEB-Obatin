@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets/img/favicon.png" rel="icon') }}">
+  <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
   <link href="{{asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
 
@@ -59,6 +59,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+            <li><a href="{{url('/resep')}}">Unggahan Resep</a></li>
 
           <li><a href="{{url('history')}}">Riwayat Pemesanan</a></li>
           <li><a href="{{ url('check-out') }}"><i class="fa fa-shopping-cart"></i>
@@ -88,7 +89,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="{{url('/konsumen/index')}}">Home</a></li>
-                      <li class="breadcrumb-item">Riwayat Pemesanan</li>
+                      <li class="breadcrumb-item">Unggahan Resep</li>
 
                     </ol>
                   </nav>
@@ -108,10 +109,6 @@
                                                         <th>Status</th>
                                                         <th>Jumlah Harga</th>
                                                         <th>Bukti Transfer</th>
-
-
-
-
                                                     </tr>
                                                 </thead>
                                                 <tbody>

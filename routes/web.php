@@ -99,6 +99,11 @@ Route::group(['middleware'=>'auth:mitra'],function(){
     Route::get('mitra/detail_pesanan','DetailPesananController@index');
     Route::get('/mitra/history/{id}','DetailPesananController@detail');
 
+    //Resep
+    Route::get('upload','ResepController@index');
+    Route::get('resep/edit/{id}','ResepController@edit');
+    Route::put('resep/update/{id}','ResepController@update');
+    Route::get('resep/hapus/{id}','ResepController@destroy');
 
 
 
@@ -120,6 +125,10 @@ Route::group(['middleware'=>'auth:konsumen'],function(){
     route::post('/upload-buktiTF/{id}', 'KonfirmasiPembayaranController@bukti_tf');
     route::get('upload_bukti/{id}', 'KonfirmasiPembayaranController@upload');
     Route::get('cetak-struk/{id}','HistoryController@cetakPDF');
+    Route::post('Unggah-resep/store','ResepController@store');
+    Route::get('resep/','ResepController@resep');
+
+
 
 
 
@@ -132,7 +141,6 @@ Route::group(['middleware'=>'guest'],function(){
     Route::get('/register','login@register');
     Route::post('/kirim', 'login@masuk');
     Route::post('/konsumen/register','login@store');
-    Route::post('/kritik','KritikController@store');
 
 
 

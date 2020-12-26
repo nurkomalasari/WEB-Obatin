@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kategori Obat</title>
-    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
-
+    <title>Unggah Resep dari Konsumen</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -13,18 +11,27 @@
     <!-- FontAwesome Styles-->
     <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
     <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
-
     <!-- Morris Chart Styles-->
     <link href="{{asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="{{asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Google Fonts-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
-
+<div id="app">
+        @yield('content')
+    </div>
         <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -34,10 +41,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo.png') }}" alt="">
+             <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo.png') }}" alt="">
 
-                <div id="sideNav" href=""></div>
-                    </div>
+		<div id="sideNav" href=""></div>
+            </div>
 
             <ul class="nav navbar-top-links navbar-right">
 
@@ -69,7 +76,6 @@
                     <li>
                         <a href="{{ url('transaksi-pesanan') }}" class="waves-effect waves-dark"><i class="fa fa-shopping-basket"></i> Transaksi</a>
                     </li>
-
                     <li>
                         <a href="{{ url('upload') }}" class="waves-effect waves-dark"><i class="fas fa-file-invoice"></i>Resep Dokter</a>
                     </li>
@@ -82,47 +88,60 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
-                            Kategori Obat
+                            Resep Dokter
                         </h1>
 
 
                     </div>
-                    <div id="page-inner">
-
-
+            <div id="page-inner">
 
                <div class="row">
-                   <div class="col-md-10">
+                   <div class="col-md-12">
                        <!-- Advanced Tables -->
                        <div class="card">
-                           <div class="card-action">
 
-                            KATEGORI OBAT
-                           </div>
                            <div class="card-action">
-                                <a href="{{url('/kategori/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Tambah Kategori</i></a>
                            </div>
                            <div class="card-content">
                                <div class="table-responsive">
                                <table id="datatables" class="table table-bordered table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kategori</th>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Resep</th>
+                                    <th>Keterangan</th>
+                                    <th>Balasan</th>
 
-                            <th> Option</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($kategori as $k)
-                            <tr>
-                                <td>{{$k->id}}</td>
-                                <td>{{$k->name_kategori}}</td>
 
+
+
+                                    <th><center>Option</center> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($resep as $rs)
+                                    <tr>
+
+
+                                <td>{{$rs->id}}</td>
+                                <td>{{$rs->konsumen->name}}</td>
+                                <td><img width="50px" src="{{ url('/gambar_obat/'.$rs->resep) }}"></td>
+
+                                <td>{{$rs->keterangan}}</td>
 
                                 <td>
-                                    <a href="/kategori/edit/{{ $k->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
-                                    <a href="/kategori/delete/{{ $k->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    @if ($rs->balasan==1)
+                                    <span class="badge" style="background-color: green">Resep yang anda minta Tersedia. Silahkan datang ke Apotek </span>
+
+                                    @elseif($rs->balasan==2)
+                                    <span class="badge" style="background-color: red">Resep yang anda minta tidak tersedia di Apotek</span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    <a href="resep/edit/{{ $rs->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
+                                    <a href="resep/hapus/{{ $rs->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
 
@@ -135,9 +154,13 @@
         </div>
     </div>
 
-                    </div>
-            </div>
         </div>
+    </div>
+   </div>
+
+
+</div>
+</div>
 
 
 
@@ -161,6 +184,11 @@
     <!-- </div>  -->
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+
+
+
+    @include('sweet::alert')
+
     <!-- jQuery Js -->
     <script src="{{asset('assets/js/jquery-1.10.2.js') }}"></script>
 
@@ -183,6 +211,7 @@
 
     <!-- Custom Js -->
     <script src="{{asset('assets/js/custom-scripts.js') }}"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -203,7 +232,7 @@
         });
     });
     </script>
-
+          @include('sweet::alert')
 </body>
 
 </html>

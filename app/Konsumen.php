@@ -13,6 +13,9 @@ class Konsumen extends Model
     public function pesanan(){
         return $this->hasMany('App\Pesanan');
     }
+    public function resep(){
+        return $this->hasMany('App\Resep');
+    }
 
 
 

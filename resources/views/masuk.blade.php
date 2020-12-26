@@ -12,6 +12,7 @@
 
     <!-- Title Page-->
     <title>Login | Obatin</title>
+    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
 
     <!-- Icons font CSS-->
     <link href={{ asset ('login/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
@@ -53,10 +54,10 @@
                             <div class="col-2">
                                 <div class="input-group">
                                 <input class="input--style-2"type="password" name="password" placeholder="Enter password" required>
-                                   
+
                                 </div>
                             </div>
-                            
+
                         <div class="p-t-10">
                             <button class="btn btn--radius btn--green" align="center" type="submit">Login</button>
                         </div>

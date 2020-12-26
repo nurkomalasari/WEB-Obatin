@@ -33,9 +33,21 @@ Route::delete('obat-delete/{id}','API\ApiObatController@deleteobat');
 Route::post('login', 'API\ApiLoginController@login');
 
 //Kategori
-Route::get('get-kategoriAll', 'API\ApiObatController@getKonsumenAll');
-Route::get('get-kategori/{id}', 'API\ApiObatController@getKategori');
-Route::post('create-Kategori', 'API\ApiObatController@createKategori');
-Route::put('update-kategori/{id}', 'API\ApiObatController@updateKategori');
-Route::delete('delete-kategori/{id}','API\ApiObatController@deleteKategori');
+Route::get('get-kategoriAll', 'API\ApiKategoriController@getKategoriAll');
+Route::get('get-kategori/{id}', 'API\ApiKategoriController@getKategori');
+Route::post('create-Kategori', 'API\ApiKategoriController@createKategori');
+Route::put('update-kategori/{id}', 'API\ApiKategoriController@updateKategori');
+Route::delete('delete-kategori/{id}','API\ApiKategoriController@deleteKategori');
 
+//pesanan
+Route::get('get-pesanan','API\ApiPesananController@getPesanan');
+Route::get('get-pesanan/{id}', 'API\ApiPesananController@getPesananId');
+Route::put('update-pesanan/{id}', 'API\ApiPesananController@updatePesanan');
+Route::post('create-pesanan', 'API\ApiPesananController@createPesanan');
+Route::delete('delete-pesanan/{id}','API\ApiPesananController@deletePesanan');
+//Detail Pesanan
+Route::get('get-DetailPesanan','API\ApiDetailPesananController@getPesanan');
+Route::get('get-DetailPesanan/{id}', 'API\ApiDetailPesananController@getPesananId');
+Route::put('update-DetailPesanan/{id}', 'API\ApiDetailPesananController@updatePesanan');
+Route::post('create-DetailPesanan', 'API\ApiDetailPesananController@createPesanan');
+Route::delete('delete-DetailPesanan/{id}','API\ApiDetailPesananController@deletePesanan');

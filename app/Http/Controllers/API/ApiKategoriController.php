@@ -4,12 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Kategori;
-use App\Konsumen;
 use Illuminate\Http\Request;
 
 class ApiKategoriController extends Controller
 {
-    public function getKonsumenAll()
+    public function getKategoriAll()
     {
 
         $kategori = Kategori::get()->toJson(JSON_PRETTY_PRINT);
@@ -63,18 +62,18 @@ class ApiKategoriController extends Controller
 
       }
 
-      public function deleteKonsumen ($id) {
+      public function deleteKategori($id) {
 
-        if(Konsumen::where('id', $id)->exists()) {
-            $konsumen = Konsumen::find($id);
-            $konsumen->delete();
+        if(Kategori::where('id', $id)->exists()) {
+            $kategori = Kategori::find($id);
+            $kategori->delete();
 
             return response()->json([
               "message" => "records deleted"
             ], 202);
           } else {
             return response()->json([
-              "message" => "Konsumen not found"
+              "message" => "kategori not found"
             ], 404);
           }
 

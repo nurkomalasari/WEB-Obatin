@@ -13,9 +13,13 @@ class CreateKritikTable extends Migration
      */
     public function up()
     {
-        Schema::create('kritik', function (Blueprint $table) {
+        Schema::create('unggahresep', function (Blueprint $table) {
             $table->id();
-            $table->string('kritik');
+            $table->bigInteger('id_konsumen')->unsigned();
+            $table->foreign('id_konsumen')->references('id')->on('konsumen')->onDelete('restrict');
+            $table->string('resep');
+            $table->string('keterangan');
+            $table->integer('balasan');
             $table->timestamps();
         });
     }

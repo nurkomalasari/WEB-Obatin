@@ -12,6 +12,7 @@
 
     <!-- Title Page-->
     <title>Register | Obatin</title>
+    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
 
     <!-- Icons font CSS-->
     <link href={{ asset ('login/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">

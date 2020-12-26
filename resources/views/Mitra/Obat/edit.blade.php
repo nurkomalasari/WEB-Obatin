@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitra</title>
+    <title>Edit data obat</title>
+    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -70,7 +72,7 @@
                         <a href="{{ url('transaksi-pesanan') }}" class="waves-effect waves-dark"><i class="fa fa-shopping-basket"></i> Transaksi</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i> Daftar Toko</a>
+                        <a href="{{ url('upload') }}" class="waves-effect waves-dark"><i class="fas fa-file-invoice"></i>Resep Dokter</a>
                     </li>
 
                 </ul>
@@ -83,11 +85,7 @@
                         <h1 class="page-header">
                           Edit Data Obat
                         </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">Dashboard</a></li>
-					  <li class="active">Data</li>
-					</ol>
+
                     <div id="page-inner">
                     <div class="row">
                    <div class="col-md-9">

@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>OBATIN</title>
+  <title>Masuk Keranjang</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets/img/favicon.png" rel="icon') }}">
+  <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
+
   <link href="{{asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
 
@@ -64,6 +65,7 @@
           {{-- <li><a href="#features">App Features</a></li>
           <li><a href="#gallery">Gallery</a></li> --}}
           {{-- <li><a href="#pricing">Home</a></li> --}}
+          <li><a href="{{url('/resep')}}">Unggahan Resep</a></li>
 
           <li><a href="{{url('history')}}">Riwayat Pemesanan</a></li>
           <li><a href="{{ url('check-out') }}"><i class="fa fa-shopping-cart"></i>

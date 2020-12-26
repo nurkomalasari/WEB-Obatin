@@ -11,7 +11,6 @@
 
   <!-- Favicons -->
   <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
-
   <link href="{{asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
 
@@ -26,8 +25,6 @@
   <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
   <link href="{{asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
   <link href="{{asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="{{ asset('js/app.js') }}"></script>
 
   <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css') }}" rel="stylesheet">
@@ -62,9 +59,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-            <li ><a href="{{url('/resep')}}">Unggahan Resep</a></li>
+            <li><a href="{{url('/resep')}}">Unggahan Resep</a></li>
 
-          <li ><a href="{{url('history')}}">Riwayat Pemesanan</a></li>
+          <li><a href="{{url('history')}}">Riwayat Pemesanan</a></li>
           <li><a href="{{ url('check-out') }}"><i class="fa fa-shopping-cart"></i>
             @if (!empty($notif))
                  <span class="badge badge-danger">{{$notif}}</span></a></li>
@@ -92,98 +89,74 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="{{url('/konsumen/index')}}">Home</a></li>
-                      <li class="breadcrumb-item">Check Out</li>
+                      <li class="breadcrumb-item">Unggahan Resep</li>
 
                     </ol>
                   </nav>
-            </div>
+                </div>
+                         <div class="col-md-12 mt-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
 
-    <div class="col-md-12 mt-3">
-       <div class="card">
-           <div class="card-body">
-               <div class="row">
-                   <div class="col-md-8">
+                                            <h4><i class="fas fa-file-invoice"></i> Unggahan Resep</h4>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Nama</th>
+                                                        <th>Resep</th>
+                                                        <th>Keterangan</th>
+                                                        <th>Balasan</th>
 
-                       <h4><i class="fa fa-shopping-cart"></i>Check Out</h4>
-                       <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Obat </th>
-                                <th>Jumlah</th>
-                                <th>Harga</th>
-                                <th>Total Harga</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1; ?>
-                            @foreach ($pesanan_details as $pesanan_detail)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{$pesanan_detail->obatku->nama_obat}}</td>
-                                <td>{{$pesanan_detail->jumlah}} /pak</td>
-                                <td align="left">Rp.{{number_format($pesanan_detail->obatku->harga)}}</td>
-                                <td align="left">Rp.{{number_format($pesanan_detail->jumlah_total)}}</td>
-                                <td>
-                                    <form action="{{url('/check-out/')}}/{{$pesanan_detail->id}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" onclick="Apakah Andah Yakin Ingin Menghapus ?"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                                <tr>
-                                    <td colspan="4" align="right"> <strong>Total Harga</strong>
-                                        <td>Rp. {{ number_format($pesanan->jumlah_harga)}}</td>
-                                    </td>
-                                    {{-- <td>
-                                        <a href="{{url('konfirmasi-check-out')}}" class="btn btn-success"><i class="fa fa-shopping-cart">Check Out</i></a>
-                                    </td> --}}
-                                </tr>
-                        </tbody>
-                    </table>
 
-                       {{-- <img src="{{ url('/gambar_obat/'.$obat->gambar) }}" style="width: 200px" class="card-img-top" alt="..."> --}}
-                   </div>
 
-                   <div class="col-md-4">
-                    <h4>Metode Pembayaran</h4>
 
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <td>
-                                <form action="{{ url('/konfirmasi-check-out/')}}/{{$pesanan->id}}" method="post">
-                                        @csrf
-                                        <div class="form-group">
-                                        <input type="text" name="id_konsumen" class="form-control" value="{{(Auth::guard('konsumen')->user()->name)}}">
+                                                        {{-- <th><center>Option</center> </th> --}}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($resep as $rs)
+                                                        <tr>
+
+
+                                                    <td>{{$rs->id}}</td>
+                                                    <td>{{$rs->konsumen->name}}</td>
+                                                    <td><img width="50px" src="{{ url('/gambar_obat/'.$rs->resep) }}"></td>
+
+                                                    <td>{{$rs->keterangan}}</td>
+
+                                                    <td>
+                                                        @if ($rs->balasan==1)
+                                                        <span class="badge" style="background-color: green">Resep yang anda minta Tersedia. Silahkan datang ke Apotek </span>
+
+                                                        @elseif($rs->balasan==2)
+                                                        <span class="badge" style="background-color: red">Resep yang anda minta tidak tersedia di Apotek</span>
+                                                        @endif
+                                                    </td>
+
+                                                    {{-- <td>
+                                                        <a href="resep/edit/{{ $rs->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
+                                                        <a href="resep/hapus/{{ $rs->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                    </td> --}}
+                                                </tr>
+
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+
+                                            {{-- <img src="{{ url('/gambar_obat/'.$obat->gambar) }}" style="width: 200px" class="card-img-top" alt="..."> --}}
                                         </div>
-                                        <div class="form-group">
-                                            <textarea name="alamat" id="" cols="30" class="form-control" rows="10" placeholder="alamat"></textarea>
-                                            </div>
-                                        <select name="metodepembayaran" class="form-control">
-                                         <option value="Transfer">Transfer</option>
-                                         <option value="Cash On Dilevery">Cash On Dilevery</option>
-                                        </select>
 
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart"></i>Check Out</button>
 
-                                </form>
-                                </td>
-                            </tr>
-                        </thead>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    </table>
-                 </div>
-               </div>
-           </div>
-       </div>
-   </div>
-
-</div>
-</div>
+                    </div>
+        </div>
     </div>
 </section><!-- End App Features Section -->
 
@@ -247,6 +220,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   @include('sweet::alert')
 </body>
 

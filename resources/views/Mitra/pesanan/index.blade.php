@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitra</title>
+    <title>Data Pesanan</title>
+    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -77,7 +79,7 @@
                         <a href="{{ url('transaksi-pesanan') }}" class="waves-effect waves-dark"><i class="fa fa-shopping-basket"></i> Transaksi</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i> Daftar Toko</a>
+                        <a href="{{ url('upload') }}" class="waves-effect waves-dark"><i class="fas fa-file-invoice"></i>Resep Dokter</a>
                     </li>
 
                 </ul>
@@ -88,7 +90,7 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
-                            Data Obat
+                            Transaksi
                         </h1>
 						<ol class="breadcrumb">
 					  <li><a href="#">Home</a></li>
@@ -145,11 +147,13 @@
                                     @if ($p->status==1)
                                     <span class="badge" style="background-color: red">Sudah Pesan & Belum dibayar</span>
 
-                                    @else
-                                    <span class="badge" style="background-color: green">Sudah dibayar</span>
+                                    @elseif($p->status==2)
+                                    <span class="badge" style="background-color: green">Menunggu konfirmasi admin</span>
+                                    @elseif($p->status==3)
+                                    <span class="badge" style="background-color: blue">Sudah Dibayar Silahkan ambil obat ditoko</span>
+
                                     @endif
                                 </td>
-
                                 <td>
                                      <a href="{{url('/mitra/history/')}}/{{$p->id}}" class="btn btn-danger"><i class="fa fa-info"></i> Detail</a>
                                 </td>
