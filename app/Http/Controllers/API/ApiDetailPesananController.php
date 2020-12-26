@@ -28,7 +28,7 @@ class ApiDetailPesananController extends Controller
 
         }
     }
-    public function updatePesanan(Request $request, $id) {
+    public function updateDetailPesanan(Request $request, $id) {
         if (DetailPesanan::where('id', $id)->exists()) {
             $pesanan_detail = DetailPesanan::find($id);
 
@@ -66,11 +66,11 @@ class ApiDetailPesananController extends Controller
         ], 201);
 
       }
-      public function deletePesanan ($id) {
+      public function deleteDetailPesanan ($id) {
 
-        if(Pesanan::where('id', $id)->exists()) {
-            $pesanan = Pesanan::find($id);
-            $pesanan->delete();
+        if(DetailPesanan::where('id', $id)->exists()) {
+            $pesanan_detail = DetailPesanan::find($id);
+            $pesanan_detail->delete();
 
             return response()->json([
               "message" => "records deleted"

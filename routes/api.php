@@ -46,8 +46,8 @@ Route::put('update-pesanan/{id}', 'API\ApiPesananController@updatePesanan');
 Route::post('create-pesanan', 'API\ApiPesananController@createPesanan');
 Route::delete('delete-pesanan/{id}','API\ApiPesananController@deletePesanan');
 //Detail Pesanan
-Route::get('get-DetailPesanan','API\ApiDetailPesananController@getPesanan');
-Route::get('get-DetailPesanan/{id}', 'API\ApiDetailPesananController@getPesananId');
-Route::put('update-DetailPesanan/{id}', 'API\ApiDetailPesananController@updatePesanan');
-Route::post('create-DetailPesanan', 'API\ApiDetailPesananController@createPesanan');
-Route::delete('delete-DetailPesanan/{id}','API\ApiDetailPesananController@deletePesanan');
+Route::get('get-DetailPesanan','API\ApiDetailPesananController@getDetailPesanan');
+Route::get('get-DetailPesanan/{id}', 'API\ApiDetailPesananController@getDetailPesananId');
+Route::put('update-DetailPesanan/{id}', 'API\ApiDetailPesananController@updateDetailPesanan');
+Route::post('create-DetailPesanan', 'API\ApiDetailPesananController@createDetailPesanan');
+Route::delete('delete-DetailPesanan/{id}','API\ApiDetailPesananController@deleteDetailPesanan');

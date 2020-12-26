@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Konsumen;
 use App\Resep;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use SweetAlert;
 
 class ResepController extends Controller
@@ -84,7 +85,7 @@ class ResepController extends Controller
     }
     public function resep()
     {
-        $resep = Resep::All();
+        $resep = Resep::where('id_konsumen', Auth::guard('konsumen')->user()->id)->first();;
 
 
         return view('konsumen.resep.index',compact('resep'));
