@@ -22,6 +22,7 @@ Route::get('createKonsumen/{id}', 'API\ApiKonsumenController@getKonsumen');
 Route::post('konsumen', 'API\ApiKonsumenController@createKonsumen');
 Route::put('konsumen-update/{id}', 'API\ApiKonsumenController@updateKonsumen');
 Route::delete('konsumen-delete/{id}','API\ApiKonsumenController@deleteKonsumen');
+Route::post('konsumen/register', 'API\ApiKonsumenController@store');
 
 Route::get('get-obatAll', 'API\ApiObatController@getobatAll');
 Route::get('get-obat/{id}', 'API\ApiObatController@getobat');

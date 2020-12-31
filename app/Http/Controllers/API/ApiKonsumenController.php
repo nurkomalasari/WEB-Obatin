@@ -83,4 +83,31 @@ class ApiKonsumenController extends Controller
           }
 
       }
+
+      public function store(Request $request)
+        {
+            $this->validate($request,[
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required',
+                'alamat' => 'required',
+                'tanggal_lahir' => 'required',
+                'noHp' => 'required'
+
+            ]);
+            Konsumen::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'alamat' => $request->alamat,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'noHp' => $request->noHp
+
+            ]);
+
+            return response()->json([
+                "message" => "Register lagi record created"
+                ], 201);
+
+        }
 }
