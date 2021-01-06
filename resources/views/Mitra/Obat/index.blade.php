@@ -138,7 +138,7 @@
                                 <td>{{$o->nama_obat}}</td>
                                 <td>{{$o->deskripsi_obat}}</td>
                                 <td>{{$o->stok}}</td>
-                                <td><img width="50px" src="{{ url('/gambar_obat/'.$o->gambar) }}"></td>
+                                <td><img width="150px" src="{{ url('/gambar_obat/'.$o->gambar) }}"></td>
                                 <td>{{$o->indikasi}}</td>
                                 <td>{{$o->komposisi}}</td>
                                 <td>{{$o->dosis}}</td>

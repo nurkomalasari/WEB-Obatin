@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obat extends Model
 {
-    protected $table = 'Obat';
+    protected $table = 'obat';
 
     protected $fillable = [
         'nama_obat','deskripsi_obat','stok','gambar','indikasi','komposisi','dosis','penyajian','keterangan','kategori_id','harga'

@@ -16,7 +16,7 @@ class CreatePesananTable extends Migration
         Schema::create('Pesanan', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_konsumen')->unsigned();
-            $table->foreign('id_konsumen')->references('id')->on('konsumen')->onDelete('cascade');
+            $table->foreign('id_konsumen')->references('id')->on('konsumen')->onDelete('restrict');
             $table->integer('jumlah_harga');
             $table->integer('kode');
             $table->string('metodepembayaran')->nullable();

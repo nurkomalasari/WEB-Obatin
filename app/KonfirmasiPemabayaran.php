@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KonfirmasiPemabayaran extends Model
 {
-    protected $table = 'KonfirmasiPembayaran';
+    protected $table = 'konfirmasipembayaran';
     protected $fillable = [
         'id_pemesanan','tanggal','nominal','bukti_tf','status'
     ];

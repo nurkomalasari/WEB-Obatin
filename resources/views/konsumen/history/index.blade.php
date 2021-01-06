@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>OBATIN</title>
+  <title>Riwayat Pemesanan</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -121,7 +121,7 @@
                                                             @if ($pesanan->status==1)
                                                             <span class="badge badge-warning">Sudah Pesan & Belum Bayar</span>
                                                             @elseif($pesanan->status==2)
-                                                            <span class="badge badge-success">Menunggu konfirmasi admin</span>
+                                                            <span class="badge badge-success">Menunggu konfirmasi dari Mitra</span>
                                                             @elseif($pesanan->status==3)
                                                             <span class="badge badge-primary"> Sudah Dibayar Silahkan ambil obat ditoko</span>
                                                             @endif

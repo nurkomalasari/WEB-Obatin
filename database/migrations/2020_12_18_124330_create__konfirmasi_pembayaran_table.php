@@ -16,7 +16,7 @@ class CreateKonfirmasiPembayaranTable extends Migration
         Schema::create('KonfirmasiPembayaran', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_pemesanan')->unsigned();
-            $table->foreign('id_pemesanan')->references('id')->on('pesanan');
+            $table->foreign('id_pemesanan')->references('id')->on('pesanan')->onDelete('cascade');
             $table->date('tanggal');
             $table->integer('nominal');
             $table->string('bukti_tf');
