@@ -57,7 +57,7 @@
                         <a class="waves-effect waves-dark" href="{{url('/mitra/index') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Stok Obat<span class="fa arrow"></span></a>
+                        <a href="" class="waves-effect waves-dark"><i class="fa fa-pills"></i> Produk Obat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{url('/kategori/tampil') }}">Kategori</a>

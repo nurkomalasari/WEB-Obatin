@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'WellcomeController@tampilobat');
+Route::get('/profil', 'WellcomeController@profil');
 Route::get('/get_obat','ObatController@getObat');
 
 
@@ -45,22 +46,24 @@ Route::group(['middleware'=>'auth:admin'],function(){
     Route::get('/konsumen/edit/{id}','DkonsumenController@edit');
     Route::put('/konsumen/update/{id}', 'DKonsumenController@update');
     Route::get('/konsumen/delete/{id}', 'DKonsumenController@destroy');
-    //Status pemesanan
 
-    Route::get('admin/status-pemesanan','StatusPemesananController@index');
-    Route::get('/admin/status-pemesanan/add','StatusPemesananController@create');
-    Route::post('/admin/status-pemesanan/store','StatusPemesananController@store');
-    Route::get('/admin/status-pemesanan/edit/{id}','StatusPemesananController@edit');
-    Route::put('/admin/status-pemesanan/store/{id}', 'StatusPemesananController@update');
-    Route::get('/admin/status-pemesanan/delete/{id}', 'StatusPemesananController@destroy');
+    //mitra
+    Route::get('/admin/mitra','DMitraController@index');
+    Route::get('/mitra/add','DMitraController@create');
+    Route::post('/mitra/store','DMitraController@store');
+    Route::get('/mitra/edit/{id}','DMitraController@edit');
+    Route::put('/mitra/update/{id}', 'DMitraController@update');
+    Route::get('/mitra/delete/{id}', 'DMitraController@destroy');
 
-    //status Pembayaran
-    Route::get('admin/status-pembayaran','StatusPembayaranController@index');
-    Route::get('/admin/status-pembayaran/add','StatusPembayaranController@create');
-    Route::post('/admin/status-pembayaran/store','StatusPembayaranController@store');
-    Route::get('/admin/status-pembayaran/edit/{id}','StatusPembayaranController@edit');
-    Route::put('/admin/status-pembayaran/store/{id}', 'StatusPembayaranController@update');
-    Route::get('/admin/status-pembayaran/delete/{id}', 'StatusPembayaranController@destroy');
+
+    // Route::get('/pemesanan','DAdminController@index');
+    // Route::get('/admin/history/{id}','DetailPesananController@detailpesanan');
+    // Route::get('transaksi/pesanan/{id}','DAdminController@edit');
+    // Route::put('pesanan/update/{id}','DAdminController@update');
+    // Route::get('transaksi-pesanan/hapus/{id}','DAdminController@destroy');
+
+
+
 
 
 
@@ -94,6 +97,8 @@ Route::group(['middleware'=>'auth:mitra'],function(){
     Route::get('transaksi-pesanan/edit/{id}','PesananController@edit');
     Route::put('transaksi-pesanan/update/{id}','PesananController@update');
     Route::get('transaksi-pesanan/hapus/{id}','PesananController@destroy');
+    Route::get('/bukti-pembayaran','DAdminController@buktiTF');
+
 
     //detail pesanan
     Route::get('mitra/detail_pesanan','DetailPesananController@index');

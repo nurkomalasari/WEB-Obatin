@@ -85,10 +85,11 @@ class ResepController extends Controller
     }
     public function resep()
     {
-        $resep = Resep::where('id_konsumen', Auth::guard('konsumen')->user()->id)->first();;
+        $reseps = Resep::where('id_konsumen', Auth::guard('konsumen')->user()->id)->get();
+        // $resep = Resep::all();
+        // dd($resep);
+        return view('konsumen.resep.index',compact('reseps'));
 
-
-        return view('konsumen.resep.index',compact('resep'));
     }
 
 

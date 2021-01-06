@@ -64,7 +64,7 @@
                         <a class="waves-effect waves-dark" href="{{url('/mitra/index') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-pills"></i> Stok Obat<span class="fa arrow"></span></a>
+                        <a href="" class="waves-effect waves-dark"><i class="fa fa-pills"></i> Produk Obat<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{url('/kategori/tampil') }}">Kategori</a>
@@ -112,7 +112,8 @@
                        <div class="card">
 
                            <div class="card-action">
-                                {{-- <a href="{{url('transaksi-pesanan/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  TAMBAH PEMESANAN</i></a> --}}
+                            <a href="{{url('/bukti-pembayaran')}}" class="btn btn-danger"><i class="fa fa-money-check"> Bukti Pembayaran </i></a>
+
                            </div>
                            <div class="card-content">
                                <div class="table-responsive">

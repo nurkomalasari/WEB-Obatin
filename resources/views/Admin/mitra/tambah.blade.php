@@ -3,17 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mengedit Balasan Resep</title>
-    <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
-
+    <title>Tambah Data Mitra</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
     <link href="{{asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
-    <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
-
     <!-- Morris Chart Styles-->
     <link href="{{asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
     <!-- Custom Styles-->
@@ -36,44 +32,36 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo.png') }}" alt="">
+                <a class="navbar-brand waves-effect waves-dark" href=""><i class="large material-icons">track_changes</i> <strong>Obatin</strong></a>
 
-                <div id="sideNav" href=""></div>
-                    </div>
+		<div id="sideNav" href=""><i class="material-icons dp50">toc</i></div>
+            </div>
 
             <ul class="nav navbar-top-links navbar-right">
 
 
-                 <li><a class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user fa-fw"></i>{{ Auth::guard('mitra')->user()->name }}<span class="caret"></span></a>
+                 <li><a class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user fa-fw"></i>{{ Auth::guard('admin')->user()->name }}<span class="caret"></span></a>
                  <ul class="dropdown-menu" style="padding: 20px 10px 5px 10px; width:150px;">
                  <li><a href="{{ url('/keluar') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </ul>
+        </nav>
         </nav>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a class="waves-effect waves-dark" href="{{url('/mitra/index') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-pills"></i> Produk Obat<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{url('/kategori/tampil') }}">Kategori</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('mitra/obat') }}">Data Obat</a>
-                            </li>
-                        </ul>
+                <li>
+                        <a  href="{{url('/admin/index')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
 
-                    <li>
-                        <a href="{{ url('transaksi-pesanan') }}" class="waves-effect waves-dark"><i class="fa fa-shopping-basket"></i> Transaksi</a>
+					<li>
+                        <a href="{{ url('admin/konsumen') }}" class="waves-effect waves-dark"><i class="fa fa-user"></i>Data Pengguna</a>
                     </li>
 
+
+
                     <li>
-                        <a href="{{ url('upload') }}" class="waves-effect waves-dark"><i class="fas fa-file-invoice"></i>Resep Dokter</a>
+                        <a class="active-menu waves-effect waves-dark"  href="{{url('/admin/mitra')}}" class="waves-effect waves-dark"><i class="fa fa-table"></i>Pendaftaran Mitra</a>
                     </li>
 
                 </ul>
@@ -83,58 +71,85 @@
         </nav>
         <div id="page-wrapper">
 		  <div class="header">
-                        <h1 class="page-header">
-                           Edit data kategori
-                        </h1>
+                        <h3 class="page-header">
+                           Tambah Data Mitra
+                        </h3>
 
 
 
                     <div id="page-inner">
 
-
                <div class="row">
-                   <div class="col-md-9">
+                   <div class="col-md-12">
                        <!-- Advanced Tables -->
                        <div class="card">
                            <div class="card-action">
-
-                                <form role="form" method="post" action="{{ url('resep/update/'. $resep->id) }}" enctype="multipart/form-data">
+                                <form role="form" method="post" action="{{ url('/mitra/store') }}">
                                 @csrf
-                                {{ method_field('PUT') }}
-
-
                                 <div class="box-body">
                                 <div class="form-group">
 
-                                        <input type="text" name="resep" class="form-control"value="{{ $resep->resep }}" >
-                                        @if($errors->has('resep'))
+                                        <input type="text" name="name" class="form-control" placeholder="Nama Mitra" >
+                                        @if($errors->has('name'))
                                             <div class="text-danger">
-                                                {{ $errors->first('resep')}}
+                                                {{ $errors->first('name')}}
                                             </div>
                                         @endif
 
                                     </div>
-                                    <div class="form-group">
+                                <div class="form-group">
 
-                                        <input type="text" name="keterangan" class="form-control"value="{{ $resep->keterangan }}" >
-                                        @if($errors->has('keterangan'))
+                                        <input type="email" name="email" class="form-control" placeholder="Email" >
+                                        @if($errors->has('email'))
                                             <div class="text-danger">
-                                                {{ $errors->first('keterangan')}}
+                                                {{ $errors->first('email')}}
                                             </div>
                                         @endif
 
                                     </div>
-                                    <label for="kategori_id">Balasan</label>
-                                    <select name="balasan" class="form-control">
-                                        <option value="">Pilih</option>
-                                        <option value=1 >Resep yang anda minta Tersedia. Silahkan datang ke Apotek </option>
-                                        <option value=2 >Resep yang anda minta tidak tersedia di Apotek</option>
-                                       </select>
-                                       <br>
+                                <div class="form-group">
+
+                                        <input type="text" name="password" class="form-control" placeholder="Password" >
+                                        @if($errors->has('password'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('password')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                <div class="form-group">
+
+                                        <input type="text" name="alamat" class="form-control" placeholder="Alamat" >
+                                        @if($errors->has('alamat'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('alamat')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                <div class="form-group">
+
+                                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" >
+                                        @if($errors->has('tanggal_lahir'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('tanggal_lahir')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                <div class="form-group">
+
+                                        <input type="text" name="noHp" class="form-control" placeholder="No Hp" >
+                                        @if($errors->has('noHp'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('noHp')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+
 
                             </div>
-
-
                         <!-- /.box-body -->
 
                         <div class="box-footer">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitra</title>
+    <title>Data Pesanan</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -16,6 +16,10 @@
     <link href="{{asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+  <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
 </head>
 
@@ -49,32 +53,17 @@
                 <ul class="nav" id="main-menu">
 
                 <li>
-                        <a class="active-menu waves-effect waves-dark" href=""><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu waves-effect waves-dark" href="{{url('/admin/index')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-desktop"></i>Validasi Pendaftaran Apotek</a>
-                    </li>
+
 					<li>
-                        <a href="{{ url('admin/konsumen') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>Data Pengguna</a>
-                    </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Validasi Pembayaran</a>
-                    </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i>Penjualan<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ url('admin/status-pemesanan') }}">Status Pemesanan</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/status-pembayaran') }}">Status Pembayaran</a>
-                            </li>
-
-                        </ul>
+                        <a  href="{{ url('admin/konsumen') }}" class="waves-effect waves-dark"><i class="fa fa-user"></i>Data Pengguna</a>
                     </li>
 
+
+
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i>Data Mitra</a>
+                        <a class="active-menu waves-effect waves-dark" href="{{url('/admin/mitra')}}" class="waves-effect waves-dark"><i class="fa fa-table"></i>Pendaftaran Mitra</a>
                     </li>
 
                 </ul>
@@ -85,61 +74,69 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h3 class="page-header">
-                        Status Pembayaran
+                        Data Konsumen
                         </h3>
-						<ol class="breadcrumb">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">Dashboard</a></li>
-					  <li class="active">Data</li>
-					</ol>
+
 
                     </div>
                     <div id="page-inner">
 
 
+                        <div class="row">
 
-               <div class="row">
-                   <div class="col-md-14">
-                       <!-- Advanced Tables -->
-                       <div class="card">
-                           <div class="card-action">
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                   <h4><i class="fa fa-shopping-cart"></i> Detail Pemesanan </h4>
+                               </div>
+                                   <p align="right">Tanggal Pesan : {{$pesanans->tanggal}} </p>
+                                   <table class="table table-striped">
+                                       <thead>
+                                           <tr>
+                                               <th>No</th>
+                                               <th>Nama Obat </th>
+                                               <th>Jumlah</th>
+                                               <th>Harga</th>
+                                               <th>Total Harga</th>
 
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <?php $no = 1; ?>
+                                           @foreach ($pesanan_details as $pd)
+                                           <tr>
+                                               <td>{{ $no++ }}</td>
+                                               <td>{{$pd->obatku->nama_obat}}</td>
+                                               <td>{{$pd->jumlah}} /pak</td>
+                                               <td align="left">Rp.{{number_format($pd->obatku->harga)}}</td>
+                                               <td align="left">Rp.{{number_format($pd->jumlah_total)}}</td>
 
-                           </div>
-                           <div class="card-action">
-                                <a href="{{url('/admin/status-pembayaran/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Status Pembayaran</i></a>
-                           </div>
-                           <div class="card-content">
-                               <div class="table-responsive">
-                               <table id="datatables" class="table table-bordered table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <!-- <th>No</th> -->
-                            <th>Nama Status</th>
+                                           </tr>
+                                           @endforeach
+                                               <tr>
+                                                   <td colspan="4" align="right"> <strong>Total Harga : </strong>
+                                                   <td>Rp. {{ number_format($pesanans->jumlah_harga)}}</td>
+                                                   </td>
 
+                                               </tr>
+                                               <tr>
+                                                   <td colspan="4" align="right"> <strong>Kode Unik : </strong>
+                                                   <td>Rp. {{ number_format($pesanans->kode)}}</td>
+                                                   </td>
 
-                            <th> Option</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($statusbayar as $sb)
-                            <tr>
+                                               </tr>
+                                               <tr>
+                                                   <td colspan="4" align="right"> <strong>Total Yang Harus ditransfer : </strong>
+                                                   <td>Rp. {{ number_format($pesanans->jumlah_harga+$pesanans->kode)}}</td>
+                                                   </td>
 
-                                <td>{{$sb->nama_status}}</td>
+                                               </tr>
+                                       </tbody>
+                                   </table>
 
+                                </div>
+                            </div>
 
-                                <td>
-                                    <a href="/admin/status-pembayaran/edit/{{ $sb->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/admin/status-pembayaran/delete/{{ $sb->id }}" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
-
-                        @endforeach
-                    </tbody>
-                </table>
-
-
-            </div>
+                        </div>
         </div>
     </div>
 
@@ -211,6 +208,7 @@
         });
     });
     </script>
+  @include('sweet::alert')
 
 </body>
 

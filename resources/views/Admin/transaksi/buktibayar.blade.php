@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitra</title>
+    <title>Bukti Pembayaran</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -16,6 +16,10 @@
     <link href="{{asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+  <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
 </head>
 
@@ -38,7 +42,7 @@
             <ul class="nav navbar-top-links navbar-right">
 
 
-                 <li><a class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user fa-fw"></i>{{ Auth::guard('admin')->user()->name }}<span class="caret"></span></a>
+                 <li><a class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-user fa-fw"></i>{{ Auth::guard('mitra')->user()->name }}<span class="caret"></span></a>
                  <ul class="dropdown-menu" style="padding: 20px 10px 5px 10px; width:150px;">
                  <li><a href="{{ url('/keluar') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
             </ul>
@@ -49,32 +53,19 @@
                 <ul class="nav" id="main-menu">
 
                 <li>
-                        <a class="active-menu waves-effect waves-dark" href=""><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu waves-effect waves-dark" href="{{url('/admin/index')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-desktop"></i>Validasi Pendaftaran Apotek</a>
-                    </li>
+
 					<li>
-                        <a href="{{ url('admin/konsumen') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>Data Pengguna</a>
+                        <a  href="{{ url('admin/konsumen') }}" class="waves-effect waves-dark"><i class="fa fa-user"></i>Data Pengguna</a>
                     </li>
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Validasi Pembayaran</a>
-                    </li>
-                    <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i>Penjualan<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ url('admin/status-pemesanan') }}">Status Pemesanan</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/status-pembayaran') }}">Status Pembayaran</a>
-                            </li>
+                        <a class="active-menu waves-effect waves-dark"  href="{{url('/pemesanan')}}" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i>Transaksi</a>
 
-                        </ul>
-                    </li>
+                        </li>
 
                     <li>
-                        <a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i>Data Mitra</a>
+                        <a href="{{url('/admin/mitra')}}" class="waves-effect waves-dark"><i class="fa fa-table"></i>Pendaftaran Mitra</a>
                     </li>
 
                 </ul>
@@ -85,61 +76,81 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h3 class="page-header">
-                        Status Pembayaran
+                        Bukti Pembayaran
                         </h3>
-						<ol class="breadcrumb">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">Dashboard</a></li>
-					  <li class="active">Data</li>
-					</ol>
+
 
                     </div>
                     <div id="page-inner">
 
 
 
-               <div class="row">
-                   <div class="col-md-14">
-                       <!-- Advanced Tables -->
-                       <div class="card">
-                           <div class="card-action">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Advanced Tables -->
+                                <div class="card">
+
+                                    <div class="card-action">
+                                         <a href="{{url('/bukti-pembayaran')}}" class="btn btn-danger"><i class="fa fa-money-check"> Bukti Pembayaran </i></a>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="table-responsive">
+                                        <table id="datatables" class="table table-bordered table-hover table-striped">
+                             <thead class="thead-dark">
+                                 <tr>
+                                     <th>No</th>
+                                     <th>Konsumen</th>
+                                     {{-- <th>Alamat</th> --}}
+                                     <th>Tanggal</th>
+                                     <th>Nominal</th>
+                                     <th>Bukti</th>
 
 
-                           </div>
-                           <div class="card-action">
-                                <a href="{{url('/admin/status-pembayaran/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Status Pembayaran</i></a>
-                           </div>
-                           <div class="card-content">
-                               <div class="table-responsive">
-                               <table id="datatables" class="table table-bordered table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <!-- <th>No</th> -->
-                            <th>Nama Status</th>
+{{--
+                                     <th><center>Lihat Detail</center> </th>
+                                     <th><center>Option</center> </th> --}}
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 @foreach($buktitf as $tf)
+                                     <tr>
+
+                                         <td>{{$tf->id}}</td>
+                                         <td>{{$tf->id_pemesanan}}</td>
+                                         {{-- <td>{{$tf->alamat}}</td> --}}
+                                         <td>{{$tf->tanggal}}</td>
+                                         <td>{{$tf->nominal}}</td>
+                                         <td><img width="100px" src="{{ url('/bukti_transfer/'.$tf->bukti_tf) }}"></td>
+                                         {{-- <td>{{$tfd->jumlah_total}}</td> --}}
+
+                                         {{-- <td>
+                                             @if ($p->statusPesanan->nama_status=="Pesanan telah Terkirim")
+                                             <span class="badge" style="background-color: green">Pesanan telah Terkirim</span>
+                                             @elseif($p->statusPesanan->nama_status=="Pesanan Sedang Dikemas")
+                                             <span class="badge" style="background-color: red">Pesanan Sedang Dikemas</span>
+                                             @elseif($p->statusPesanan->nama_status=="Pesanan Siap Diambil")
+                                             <span class="badge" style="background-color: blue">Pesanan Siap Diambil</span>
+                                             @elseif($p->statusPesanan->nama_status=="Pesanan telah Selesai")
+                                             <span class="badge" style="background-color: orange">Pesanan telah Selesai</span>
+                                             @endif
+                                         </td> --}}
 
 
-                            <th> Option</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($statusbayar as $sb)
-                            <tr>
-
-                                <td>{{$sb->nama_status}}</td>
+                                         {{-- <td>Rp {{ number_format($pd->jumlah_total)}}</td> --}}
 
 
-                                <td>
-                                    <a href="/admin/status-pembayaran/edit/{{ $sb->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/admin/status-pembayaran/delete/{{ $sb->id }}" class="btn btn-danger">Hapus</a>
-                                </td>
-                            </tr>
+                                         {{-- <td>
+                                             <a href="transaksi/pesanan/{{ $p->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
+                                             <a href="transaksi-pesanan/hapus/{{ $p->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                         </td> --}}
+                                     </tr>
 
-                        @endforeach
-                    </tbody>
-                </table>
+                                 @endforeach
+                             </tbody>
+                         </table>
 
 
-            </div>
+                     </div>
         </div>
     </div>
 
@@ -211,6 +222,7 @@
         });
     });
     </script>
+  @include('sweet::alert')
 
 </body>
 

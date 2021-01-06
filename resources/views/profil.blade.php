@@ -58,7 +58,7 @@
           {{-- <li><a href="#features">App Features</a></li>
           <li><a href="#gallery">Gallery</a></li> --}}
           {{-- <li><a href="#pricing">Home</a></li> --}}
-          <li><a href="{{url('/profil')}}">Informtion</a></li>
+          <li><a href="#faq">Informtion</a></li>
           {{-- <li><a href="#contact">Contact Us</a></li> --}}
 
           <li class="get-started"><a href="{{ url('/masuk') }}" class="nav-item nav-link ">Masuk</a></li>
@@ -70,69 +70,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
-          <div>
-            <h1>Jasa Pemesanan dan Pembelian Obat</h1>
-            <p>Aplikasi Sistem Informasi Obatin ditujukan kepada Masyarakat guna memudahkan Masyarakat dalam mencari Apotek dan mencari Obat. Serta untuk Apotek guna memudahkan Apoteker dalam melakukan Pengelolaan Transaksi, Pencatatan Nota.</p>
-          </div>
-        </div>
-        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
-          <img src="{{asset('assets/img/obatin.png') }}" class="img-fluid" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= App Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Product</h2>
-          {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-        </div>
-        <div class="container">
-            <div class="row">
-            @foreach ($obat as $o)
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="{{ url('/gambar_obat/'.$o->gambar) }}" style="width: 200px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$o->nama_obat}}</h5>
-                        <p class="card-text">
-                            <strong>Harga : </strong> Rp.{{number_format($o->harga)}} <br>
-                            <strong>Stok : </strong> {{$o->stok}} <br>
-                            <strong>Keterangan : </strong> {{$o->keterangan}} <br>
-
-
-                        </p>
-                    <a href="{{url('/pesan/')}}/{{($o->id)}}" class="btn btn-danger" ><i class="fa fa-shopping-cart"></i>Pesan</a>
-                    </div>
-                </div>
-
-            </div>
-            @endforeach
-            <br>
-
-        </div>
-        {{ $obat->links() }}
-    </div>
-
-
-
-
-    </section><!-- End App Features Section -->
-
-    <!-- ======= Details Section ======= -->
-  <!-- End Details Section -->
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
@@ -162,7 +100,87 @@
     </section><!-- End Gallery Section -->
 
     <!-- ======= Testimonials Section ======= -->
+    <section id="#faq" class="testimonials section-bg">
+      <div class="container">
 
+        {{-- <div class="section-title">
+          <h2></h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div> --}}
+
+        <div class="owl-carousel testimonials-carousel" data-aos="fade-up">
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/rahmayani.png" class="testimonial-img" alt="">
+              <h3>Apotek Rahmayani</h3>
+              <h4>Kategori : Fasilitas Kesehatan, Apotek / Apotik</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Lohbener, Kec. Lohbener, Kabupaten Indramayu, Jawa Barat
+                Indramayu, Jawa Barat, Indonesia 45252
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/leuwigede.jpeg" class="testimonial-img" alt="">
+              <h3>Apotek Leuwigede </h3>
+              <h4>Kategori: Fasilitas Kesehatan, Apotek / Apotik</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Leuwigede, Kec. Widasari, Kabupaten Indramayu, Jawa Barat
+                Indramayu, Jawa Barat, Indonesia 45271
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+          {{-- <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/Aldini.jpg" class="testimonial-img" alt="">
+              <h3>Aldini Eka Putri</h3>
+              <h4>WEB Programmer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+
+           <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/Arief.jpg" class="testimonial-img" alt="">
+              <h3>M. Arief Rizaldy</h3>
+              <h4>Mobile Programmer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div> --}}
+
+          {{-- <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div> --}}
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
 
     <!-- ======= Pricing Section ======= -->
 

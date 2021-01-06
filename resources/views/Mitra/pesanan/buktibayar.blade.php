@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Obat</title>
+    <title>Bukti Pembayaran</title>
     <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,20 +13,21 @@
     <!-- FontAwesome Styles-->
     <link href="{{asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
     <link href="{{asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-
     <!-- Morris Chart Styles-->
     <link href="{{asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="{{asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Google Fonts-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -42,10 +43,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo.png') }}" alt="">
+             <img class="navbar-brand waves-effect waves-dark" src="{{asset('assets/img/logo.png') }}" alt="">
 
-                <div id="sideNav" href=""></div>
-                    </div>
+		<div id="sideNav" href=""></div>
+            </div>
 
             <ul class="nav navbar-top-links navbar-right">
 
@@ -77,7 +78,6 @@
                     <li>
                         <a href="{{ url('transaksi-pesanan') }}" class="waves-effect waves-dark"><i class="fa fa-shopping-basket"></i> Transaksi</a>
                     </li>
-
                     <li>
                         <a href="{{ url('upload') }}" class="waves-effect waves-dark"><i class="fas fa-file-invoice"></i>Resep Dokter</a>
                     </li>
@@ -90,9 +90,13 @@
         <div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
-                            Data Obat
+                            Bukti Pembayaran
                         </h1>
-
+						<ol class="breadcrumb">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">Dashboard</a></li>
+					  <li class="active">Data</li>
+					</ol>
 
                     </div>
 
@@ -102,63 +106,52 @@
 
             <div id="page-inner">
 
-               <div class="row">
-                   <div class="col-md-12">
-                       <!-- Advanced Tables -->
-                       <div class="card">
 
-                           <div class="card-action">
-                                <a href="{{url('/mitra/tambah_obat')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  TAMBAH OBAT</i></a>
-                           </div>
-                           <div class="card-content">
-                               <div class="table-responsive">
-                               <table id="datatables" class="table table-bordered table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Obat</th>
-                            <th>Deskripsi Obat</th>
-                            <th>Stok</th>
-                            <th>Gambar Obat</th>
-                            <th>Indikasi</th>
-                            <th>Komposisi</th>
-                            <th>Dosis</th>
-                            <th>Penyajian</th>
-                            <th>Keterangan</th>
-                            <th>Kategori</th>
-                            <th>Harga</th>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Advanced Tables -->
+                        <div class="card">
 
-                            <th><center>Option</center> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($obat as $o)
-                            <tr>
-                                <td>{{$o->id}}</td>
-                                <td>{{$o->nama_obat}}</td>
-                                <td>{{$o->deskripsi_obat}}</td>
-                                <td>{{$o->stok}}</td>
-                                <td><img width="50px" src="{{ url('/gambar_obat/'.$o->gambar) }}"></td>
-                                <td>{{$o->indikasi}}</td>
-                                <td>{{$o->komposisi}}</td>
-                                <td>{{$o->dosis}}</td>
-                                <td>{{$o->penyajian}}</td>
-                                <td>{{$o->keterangan}}</td>
-                                <td>{{$o->kategori->name_kategori}}</td>
-                                <td>Rp. {{ number_format($o->harga)}}</td>
-
-                                <td>
-                                    <a href="/mitra/obat/edit/{{ $o->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
-                                    <a href="/mitra/obat/hapus/{{ $o->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-
-                        @endforeach
-                    </tbody>
-                </table>
+                            <div class="card-action">
+                                 <a href="{{url('/bukti-pembayaran')}}" class="btn btn-danger"><i class="fa fa-money-check"> Bukti Pembayaran </i></a>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                <table id="datatables" class="table table-bordered table-hover table-striped">
+                     <thead class="thead-dark">
+                         <tr>
+                             <th>No</th>
+                             <th>Konsumen</th>
+                             {{-- <th>Alamat</th> --}}
+                             <th>Tanggal</th>
+                             <th>Nominal</th>
+                             <th>Bukti</th>
 
 
-            </div>
+
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @foreach($buktitf as $tf)
+                             <tr>
+
+                                 <td>{{$tf->id}}</td>
+                                 <td>{{$tf->id_pemesanan}}</td>
+                                 {{-- <td>{{$tf->alamat}}</td> --}}
+                                 <td>{{$tf->tanggal}}</td>
+                                 <td>{{$tf->nominal}}</td>
+                                 <td><img width="100px" src="{{ url('/bukti_transfer/'.$tf->bukti_tf) }}"></td>
+                                 {{-- <td>{{$tfd->jumlah_total}}</td> --}}
+
+
+                             </tr>
+
+                         @endforeach
+                     </tbody>
+                 </table>
+
+
+             </div>
         </div>
     </div>
 
@@ -195,6 +188,7 @@
 
 
 
+    @include('sweet::alert')
 
     <!-- jQuery Js -->
     <script src="{{asset('assets/js/jquery-1.10.2.js') }}"></script>
@@ -239,7 +233,7 @@
         });
     });
     </script>
-      @include('sweet::alert')
+          @include('sweet::alert')
 </body>
 
 </html>

@@ -224,7 +224,7 @@
             <form action="{{url('Unggah-resep/store')}}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-            <input type="text" name="id_konsumen" value="{{(Auth::guard('konsumen')->user()->id)}}" class="form-control" placeholder="">
+            <input type="hidden" name="id_konsumen" value="{{(Auth::guard('konsumen')->user()->id)}}" class="form-control" placeholder="">
                 <div class="form-group">
 
                     <div class="form-group">

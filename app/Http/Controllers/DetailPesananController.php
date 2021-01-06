@@ -25,8 +25,16 @@ class DetailPesananController extends Controller
         $pesanans = Pesanan::where('id',$id)->first();
         $pesanan_details = DetailPesanan::where('id_pemesanan', $pesanans->id)->get();
 
-
         return view('Mitra.detail_pesanan.detail', compact('pesanans','pesanan_details'));
+
+    }
+    public function detailpesanan($id)
+    {
+        $pesanans = Pesanan::where('id',$id)->first();
+        $pesanan_details = DetailPesanan::where('id_pemesanan', $pesanans->id)->get();
+
+
+        return view('Admin.transaksi.detail', compact('pesanans','pesanan_details'));
 
     }
     /**

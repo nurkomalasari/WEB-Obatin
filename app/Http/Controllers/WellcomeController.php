@@ -15,4 +15,11 @@ class WellcomeController extends Controller
         // dd($obat);
         return view('welcome1',compact('obat'));
     }
+    public function profil(){
+
+
+
+        // dd($obat);
+        return view('profil');
+    }
 }

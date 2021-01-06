@@ -34,7 +34,7 @@
             <div class="card card-2">
                 <div class= "card card-2"img src="obatin.jpeg"></div>
                 <div class="card-body">
-                    <h2 class="title">Login Obatin</h2>
+                    <h2 class="title">Register Obatin Konsumen</h2>
 					@if(Session::has('alert'))
                 <div class="alert alert-danger" align="center">
                     <div>{{Session::get('alert')}}</div>

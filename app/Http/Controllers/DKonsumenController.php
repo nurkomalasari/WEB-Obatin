@@ -176,6 +176,7 @@ class DKonsumenController extends Controller
     		'noHp' => $request->noHp
 
     	]);
+        alert()->success('Data Konsumen telah ditambahkan', 'Sukses');
 
         return redirect('/admin/konsumen');
 
@@ -191,7 +192,7 @@ class DKonsumenController extends Controller
         $this->validate($request,[
             'name' => 'required',
     		'email' => 'required',
-    		// 'password' => 'required',
+    		'password' => 'required',
     		'alamat' => 'required',
     		'tanggal_lahir' => 'required',
     		'noHp' => 'required'
@@ -201,12 +202,14 @@ class DKonsumenController extends Controller
          $konsumen = Konsumen::find($id);
          $konsumen->name = $request->name;
          $konsumen->email = $request->email;
-        //  $konsumen->password = $request->name;
+         $konsumen->password = $request->name;
          $konsumen->alamat = $request->alamat;
          $konsumen->tanggal_lahir = $request->tanggal_lahir;
          $konsumen->noHp = $request->noHp;
 
          $konsumen->save();
+        alert()->success('Data Konsumen telah diedit', 'Sukses');
+
          return redirect('/admin/konsumen');
     }
 
@@ -214,8 +217,12 @@ class DKonsumenController extends Controller
     {
         $konsumen = Konsumen::find($id);
             $konsumen->delete();
+        alert()->error('Data Konsumen telah diedit', 'Delete');
+
             return redirect('/admin/konsumen');
     }
+
+
 
 
 }
