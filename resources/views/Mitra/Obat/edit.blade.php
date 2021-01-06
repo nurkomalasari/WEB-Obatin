@@ -110,7 +110,7 @@
 
                                     <div class="form-group">
 
-                                        <textarea name="deskripsi_obat" class="form-control" placeholder="Deskripsi Obat" value=" {{ $obat->deskripsi_obat }} "></textarea>
+                                        <textarea name="deskripsi_obat" class="form-control" placeholder="Deskripsi Obat">{{ $obat->deskripsi_obat }}</textarea>
 
                                         @if($errors->has('deskripsi_obat'))
                                             <div class="text-danger">
@@ -122,7 +122,7 @@
 
                                     <div class="form-group">
 
-                                        <input type="number" name="stok" class="form-control" placeholder="Stok" value=" {{ $obat->stok }} ">
+                                        <input type="text" name="stok" class="form-control" placeholder="Stok" value=" {{ $obat->stok }} ">
                                         @if($errors->has('stok'))
                                             <div class="text-danger">
                                                 {{ $errors->first('stok')}}
@@ -132,10 +132,10 @@
                                     </div>
 
 
-                                    <!-- <div class="form-group">
+                                    <div class="form-group">
                                     <b>Gambar Obat</b><br/>
                                     <input type="file" name="gambar">
-                                    </div> -->
+                                    </div>
                                     <div class="form-group">
 
                                         <input type="text" name="indikasi" class="form-control" placeholder="Indikasi"value=" {{ $obat->indikasi }}">
@@ -149,7 +149,7 @@
 
                                     <div class="form-group">
 
-                                        <textarea name="komposisi" class="form-control" placeholder="Komposisi" value=" {{ $obat->komposisi }} "></textarea>
+                                        <textarea name="komposisi" class="form-control" placeholder="Komposisi">{{ $obat->komposisi }}</textarea>
 
                                         @if($errors->has('komposisi'))
                                             <div class="text-danger">
@@ -182,7 +182,7 @@
 
                                     <div class="form-group">
 
-                                        <textarea name="keterangan" class="form-control" placeholder="Keterangan" value=" {{ $obat->keterangan }}"></textarea>
+                                        <textarea name="keterangan" class="form-control" placeholder="Keterangan">{{ $obat->keterangan }}</textarea>
 
                                         @if($errors->has('keterangan'))
                                             <div class="text-danger">

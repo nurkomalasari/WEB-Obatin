@@ -18,6 +18,7 @@ class AddAlamatOnMitraTable extends Migration
         $table->string('alamat')->nullable()->after('password');
         $table->string('tanggal_lahir')->nullable()->after('alamat');
         $table->integer('noHp')->nullable()->after('tanggal_lahir');
+        // $table->string('no_rekening');
         });
     }
 

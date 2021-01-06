@@ -11,9 +11,8 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Login | Obatin</title>
+    <title>Register | Obatin</title>
     <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Icons font CSS-->
     <link href={{ asset ('login/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
@@ -24,6 +23,7 @@
     <!-- Vendor CSS-->
     <link href="{{ asset ('login/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="vendor/datepicker/daterangepicker.css') }}" rel="stylesheet" media="all">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Main CSS-->
     <link href="{{ asset ('login/css/main.css') }}" rel="stylesheet" media="all">
@@ -35,7 +35,7 @@
             <div class="card card-2">
                 <div class= "card card-2"img src="obatin.jpeg"></div>
                 <div class="card-body">
-                    <h2 class="title">Login Obatin</h2>
+                    <h2 class="title">Register Obatin Mitra</h2>
 					@if(Session::has('alert'))
                 <div class="alert alert-danger" align="center">
                     <div>{{Session::get('alert')}}</div>
@@ -46,8 +46,11 @@
                     <div>{{Session::get('alert-success')}}</div>
                 </div>
             @endif
-                    <form method="post"class="login100-form validate-form" action="kirim" method="post">
+                    <form method="post"class="login100-form validate-form" action={{ url('/mitra/add') }} method="post">
 					{{ @csrf_field() }}
+                        <div class="input-group" >
+						<input  class="input--style-2" type="text" name="name" placeholder="masukan nama" required>
+                        </div>
                         <div class="input-group" >
 						<input  class="input--style-2" type="email" name="email" placeholder="Enter email" required>
                         </div>
@@ -58,9 +61,25 @@
 
                                 </div>
                             </div>
+                        </div>
+                            <div class="input-group" >
+                                <input  class="input--style-2" type="text" name="alamat" placeholder="masukan alamat" required>
+                            </div>
+                            <div class="input-group" >
+                                <input  class="input--style-2" type="date" name="tanggal_lahir" required>
+                            </div>
+                            <div class="input-group" >
+                                <input  class="input--style-2" type="text" name="noHp" placeholder="Nomer HP" required>
+                            </div>
+                            {{-- <div class="input-group" >
+                                <input  class="input--style-2" type="text" name="no_rekening" placeholder="Nomer Rekening" required>
+                            </div> --}}
 
-                        <div class="p-t-10">
-                            <button class="btn btn--radius btn--green" align="center" type="submit">Login</button>
+                        {{-- <div class="p-t-10">
+                            <button class="btn btn--radius btn--green" align="center" type="submit">Daftar</button>
+                        </div> --}}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn--radius btn--green" value="Daftar">
                         </div>
                     </form>
                 </div>

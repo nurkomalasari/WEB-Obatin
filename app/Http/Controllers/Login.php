@@ -8,6 +8,9 @@ use App\Mitra;
 use App\Konsumen;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use UxWeb\SweetAlert\SweetAlert;
+
+
 
 
 class Login extends Controller
@@ -19,6 +22,10 @@ class Login extends Controller
     public function register(){
 
         return view('register');
+    }
+    public function registerm(){
+
+        return view('registermitra');
     }
 
     public function store(Request $request)
@@ -41,6 +48,35 @@ class Login extends Controller
     		'noHp' => $request->noHp
 
     	]);
+        alert()->success('Registrasi Konsumen telah berhasil', 'Berhasil');
+
+        return redirect('/masuk');
+
+    }
+
+    public function storemitra(Request $request)
+    {
+        $this->validate($request,[
+    		'name' => 'required',
+    		'email' => 'required',
+    		'password' => 'required',
+    		'alamat' => 'required',
+    		'tanggal_lahir' => 'required',
+            'noHp' => 'numeric|required',
+            // 'no_rekening' => 'numeric|required'
+
+    	]);
+        Mitra::create([
+    		'name' => $request->name,
+    		'email' => $request->email,
+    		'password' => Hash::make($request->password),
+    		'alamat' => $request->alamat,
+    		'tanggal_lahir' => $request->tanggal_lahir,
+    		'noHp' => $request->noHp,
+    		// 'no_rekening' => $request->no_rekening
+
+    	]);
+        alert()->success('Registrasi Mitra telah berhasil', 'Berhasil');
 
         return redirect('/masuk');
 
@@ -52,12 +88,16 @@ class Login extends Controller
             // if successful, then redirect to their intended location
             return redirect()->intended('/admin/index');
         }else if (Auth::guard('mitra')->attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            alert()->success('Login Sebagai Mitra', 'Berhasil');
             return redirect()->intended('/mitra/index');
         }else if (Auth::guard('konsumen')->attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            alert()->success('Login Sebagai Konsumen', 'Berhasil');
             return redirect()->intended('/konsumen/index');
         }else{
             //Gagal Login
-            // alert()->error('Gagal Login', 'Error');
+            alert()->error('Gagal Login', 'Error');
             return redirect('/masuk')->with('alert','Password atau Email, Salah !');
         }
     }
@@ -71,6 +111,8 @@ class Login extends Controller
         }else if(Auth::guard('konsumen')->check()){
             Auth::guard('konsumen')->logout();
         }
-        return redirect('/')->with('alert','Kamu sudah logout');
+        alert()->success('Anda Telah Logout', 'Berhasil');
+
+        return redirect('/');
     }
 }

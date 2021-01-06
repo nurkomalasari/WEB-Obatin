@@ -17,8 +17,6 @@ class WellcomeController extends Controller
     }
     public function profil(){
 
-
-
         // dd($obat);
         return view('profil');
     }

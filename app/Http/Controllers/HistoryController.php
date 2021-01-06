@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DetailPesanan;
 use App\KonfirmasiPemabayaran;
+use App\Mitra;
 use App\Obat;
 use App\Pesanan;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -23,9 +24,10 @@ class HistoryController extends Controller
     public function detail($id)
     {
         $pesanans = Pesanan::where('id',$id)->first();
+        $mitra = Mitra::all();
         $pesanan_details = DetailPesanan::where('id_pemesanan', $pesanans->id)->get();
 
-        return view('konsumen.history.detail', compact('pesanans','pesanan_details'));
+        return view('konsumen.history.detail', compact('pesanans','pesanan_details','mitra'));
 
     }
 

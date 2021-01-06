@@ -49,7 +49,7 @@ Route::group(['middleware'=>'auth:admin'],function(){
 
     //mitra
     Route::get('/admin/mitra','DMitraController@index');
-    Route::get('/mitra/add','DMitraController@create');
+    // Route::get('/mitra/add','DMitraController@create');
     Route::post('/mitra/store','DMitraController@store');
     Route::get('/mitra/edit/{id}','DMitraController@edit');
     Route::put('/mitra/update/{id}', 'DMitraController@update');
@@ -146,6 +146,9 @@ Route::group(['middleware'=>'guest'],function(){
     Route::get('/register','login@register');
     Route::post('/kirim', 'login@masuk');
     Route::post('/konsumen/register','login@store');
+    Route::get('/mitra/register','login@registerm');
+    Route::post('/mitra/add','login@storemitra');
+
 
 
 

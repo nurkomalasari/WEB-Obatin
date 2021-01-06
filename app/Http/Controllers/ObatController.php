@@ -97,24 +97,36 @@ public function getObat(Request $request)
     }
 
     public function update($id, Request $request){
-            // $this->validate($request,[
-            //     'nama_obat' => 'required',
-            //     'deskripsi_obat' => 'required',
-            //     'stok' => 'required',
-            //     // 'gambar' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            //     'indikasi' => 'required',
-            //     'komposisi' => 'required',
-            //     'dosis' => 'required',
-            //     'penyajian' => 'required',
-            //     'keterangan' => 'required',
-            //     // 'kategori_id' => 'required',
-            //     'harga' => 'required',
-            // ]);
+            $this->validate($request,[
+                'nama_obat' => 'required',
+                'deskripsi_obat' => 'required',
+                'stok' => 'numeric|required',
+                'gambar' => 'required|file|image|mimes:jpeg,png,jpg',
+                'indikasi' => 'required',
+                'komposisi' => 'required',
+                'dosis' => 'required',
+                'penyajian' => 'required',
+                'keterangan' => 'required',
+                'kategori_id' => 'required',
+                'harga' => 'numeric|required',
+            ]);
 
             $obat = Obat::find($id);
             $obat->nama_obat = $request->nama_obat;
             $obat->deskripsi_obat = $request->deskripsi_obat;
             $obat->stok = $request->stok;
+            if($request->file('gambar') == "")
+            {
+                    $obat->gambar=$obat->gambar;
+
+                }
+                else
+                {
+
+                $filename = time(). '.png'; '.jpg'; '.jpeg';
+                $request->file('gambar')->move("../public/gambar_obat", $filename);
+                $obat->gambar = $filename;
+            }
             $obat->indikasi = $request->indikasi;
             $obat->komposisi = $request->komposisi;
             $obat->dosis = $request->dosis;

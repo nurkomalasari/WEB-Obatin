@@ -91,9 +91,9 @@
 
 
                            </div>
-                           <div class="card-action">
+                           {{-- <div class="card-action">
                                 <a href="{{url('/mitra/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Daftarkan mitra</i></a>
-                           </div>
+                           </div> --}}
                            <div class="card-content">
                                <div class="table-responsive">
                                <table id="datatables" class="table table-bordered table-hover table-striped">

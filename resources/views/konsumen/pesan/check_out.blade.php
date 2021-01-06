@@ -86,7 +86,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-            <a href="{{url('/')}}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kembali</a>
+            <a href="{{url('/konsumen/index')}}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-12 mt-2">
                 <nav aria-label="breadcrumb">

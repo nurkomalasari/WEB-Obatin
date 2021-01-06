@@ -109,7 +109,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2">
-            <a href="{{url('/')}}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kembali</a>
+            <a href="{{url('/konsumen/index')}}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-12 mt-2">
                 <nav aria-label="breadcrumb">
@@ -125,36 +125,51 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-5">
-                                <img src="{{ url('/gambar_obat/'.$obat->gambar) }}" style="width: 200px" class="card-img-top" alt="...">
+                                <img src="{{ url('/gambar_obat/'.$obat->gambar) }}" style="width: 350px" class="card-img-top" alt="...">
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-7">
                                 <h3>{{$obat->nama_obat}}</h3>
                                 <table class="table ">
                                     <thead>
 
                                             <tr>
-                                                <td>Harga</td>
+                                                <td> <strong>Harga</strong></td>
                                                 <td>:</td>
                                                 <td>RP. {{number_format($obat->harga)}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Deskripsi</td>
+                                                <td> <strong>Deskripsi</strong> </td>
                                                 <td>:</td>
                                                 <td>{{$obat->deskripsi_obat}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Stok</td>
+                                                <td> <strong>Stok</strong> </td>
                                                 <td>:</td>
                                                 <td>{{$obat->stok}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Keterangan</td>
+                                                <td> <strong>Keterangan</strong> </td>
                                                 <td>:</td>
                                                 <td>{{$obat->keterangan}}</td>
                                             </tr>
+                                            <tr>
+                                                <td><strong>Indikasi</strong></td>
+                                                <td>:</td>
+                                                <td>{{$obat->indikasi}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Komposisi</strong></td>
+                                                <td>:</td>
+                                                <td>{{$obat->komposisi}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Dosis</strong></td>
+                                                <td>:</td>
+                                                <td>{{$obat->dosis}}</td>
+                                            </tr>
 
                                             <tr>
-                                                <td>Jumlah Pesanan</td>
+                                                <td><strong>Jumlah Pesanan</strong></td>
                                                 <td>:</td>
                                                 <td>
                                                     <form action="{{ url('/pesan-checkout/')}}/{{$obat->id}}" method="post">

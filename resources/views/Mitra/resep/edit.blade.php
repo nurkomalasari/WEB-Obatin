@@ -106,7 +106,19 @@
                                 <div class="box-body">
                                 <div class="form-group">
 
-                                        <input type="text" name="resep" class="form-control"value="{{ $resep->resep }}" >
+                                        <input type="text" readonly="readonly" name="name" class="form-control"value="{{ $resep->konsumen->name }}" >
+                                        @if($errors->has('name'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('name')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                <div class="form-group">
+                                    <button type="button" data-toggle="modal" data-target="#modalFoto{{ $resep->id }}">
+                                        <img src="{{ asset('/gambar_obat/'.$resep->resep) }}" alt="" height="100px" weight="100px">
+                                    </button>
+                                        <input type="hidden" name="resep" class="form-control"value="{{ $resep->resep }}" >
                                         @if($errors->has('resep'))
                                             <div class="text-danger">
                                                 {{ $errors->first('resep')}}

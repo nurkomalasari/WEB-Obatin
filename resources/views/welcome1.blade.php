@@ -58,11 +58,12 @@
           {{-- <li><a href="#features">App Features</a></li>
           <li><a href="#gallery">Gallery</a></li> --}}
           {{-- <li><a href="#pricing">Home</a></li> --}}
-          <li><a href="{{url('/profil')}}">Informtion</a></li>
+          <li><a href="{{url('/profil')}}">Information</a></li>
           {{-- <li><a href="#contact">Contact Us</a></li> --}}
 
           <li class="get-started"><a href="{{ url('/masuk') }}" class="nav-item nav-link ">Masuk</a></li>
-          <li class="get-started"><a href="{{ url('/register') }}" class="nav-item nav-link ">Daftar</a></li>
+          <li class="get-started"><a href="{{ url('/register') }}" class="nav-item nav-link ">Daftar Konsumen</a></li>
+          <li class="get-started"><a href="{{ url('/mitra/register') }}" class="nav-item nav-link ">Daftar Mitra</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

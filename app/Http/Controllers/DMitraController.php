@@ -36,7 +36,7 @@ class DMitraController extends Controller
 
     public function create()
     {
-        return view('Admin.mitra.tambah');
+        return view('registermitra');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class DMitraController extends Controller
     		'password' => 'required',
     		'alamat' => 'required',
     		'tanggal_lahir' => 'required',
-    		'noHp' => 'required'
+    		'noHp' => 'numeric|required'
 
     	]);
         Mitra::create([
@@ -61,7 +61,7 @@ class DMitraController extends Controller
     	]);
         alert()->success('Data Mitra telah ditambahkan', 'Sukses');
 
-        return redirect('/admin/mitra');
+        return redirect('/masuk');
 
     }
 
@@ -78,7 +78,8 @@ class DMitraController extends Controller
     		'password' => 'required',
     		'alamat' => 'required',
     		'tanggal_lahir' => 'required',
-    		'noHp' => 'required'
+            'noHp' => 'numeric|required',
+            'no_rekening' => 'numeric|required'
 
          ]);
 
@@ -89,6 +90,7 @@ class DMitraController extends Controller
          $mitra->alamat = $request->alamat;
          $mitra->tanggal_lahir = $request->tanggal_lahir;
          $mitra->noHp = $request->noHp;
+         $mitra->no_rekening = $request->no_rekening;
 
          $mitra->save();
         alert()->success('Data Mitra telah diedit', 'Sukses');

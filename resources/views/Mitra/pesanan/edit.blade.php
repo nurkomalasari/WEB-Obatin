@@ -105,7 +105,7 @@
 
                                 <div class="form-group">
 
-                                        <input type="text" name="id_konsumen" class="form-control" placeholder="ID Konsumen" value="{{$pesanan->id_konsumen}}" >
+                                        <input type="hidden" name="id_konsumen" class="form-control" placeholder="ID Konsumen" value="{{$pesanan->id_konsumen}}" >
                                         @if($errors->has('id_konsumen'))
                                             <div class="text-danger">
                                                 {{ $errors->first('id_konsumen')}}
@@ -134,7 +134,10 @@
                                             @endif
                                         </div>
                                             <div class="form-group">
-                                            <input type="text" name="metodepembayaran" class="form-control" placeholder="Metode Pembayaran" value="{{$pesanan->metodepembayaran}}" >
+                                                <select name="metodepembayaran" class="form-control">
+                                                    <option value="Transfer">Transfer</option>
+                                                    <option value="Cash On Dilevery">Cash On Dilevery</option>
+                                                   </select>
                                             @if($errors->has('metodepembayaran'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('metodepembayaran')}}

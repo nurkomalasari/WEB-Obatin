@@ -10,5 +10,6 @@ class Mitra extends Model
 
     protected $fillable = [
         'name','email','password','alamat','tanggal_lahir','noHp'
+        // , 'no_rekening'
     ];
 }

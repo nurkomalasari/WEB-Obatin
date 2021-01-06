@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Kategori;
 use Illuminate\Http\Request;
-use Alert;
+use UxWeb\SweetAlert\SweetAlert;
+
+
 
 class KategoriController extends Controller
 {
@@ -39,7 +41,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    		'name_kategori' => 'required',
+    		'name_kategori' =>array('required','regex:/(^([a-zA-Z\s]+)(\d+)?$)/u')
 
     	]);
 
@@ -47,6 +49,7 @@ class KategoriController extends Controller
     		'name_kategori' => $request->name_kategori,
 
     	]);
+        alert()->success('Kategori Telah ditambahkan', 'Sukses');
 
     	return redirect('/kategori/tampil');
     }
@@ -84,7 +87,7 @@ class KategoriController extends Controller
     public function update(Request $request, Kategori $kategori , $id)
     {
         $this->validate($request,[
-            'name_kategori' => 'required',
+            'name_kategori' => array('required','regex:/(^([a-zA-Z\s]+)(\d+)?$)/u')
 
          ]);
 

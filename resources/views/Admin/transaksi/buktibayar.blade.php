@@ -106,9 +106,7 @@
                                      <th>Bukti</th>
 
 
-{{--
-                                     <th><center>Lihat Detail</center> </th>
-                                     <th><center>Option</center> </th> --}}
+
                                  </tr>
                              </thead>
                              <tbody>

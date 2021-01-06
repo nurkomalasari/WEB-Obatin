@@ -16,11 +16,11 @@ class CreatePesananTable extends Migration
         Schema::create('Pesanan', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_konsumen')->unsigned();
-            $table->foreign('id_konsumen')->references('id')->on('konsumen')->onDelete('restrict');
+            $table->foreign('id_konsumen')->references('id')->on('konsumen')->onDelete('cascade');
             $table->integer('jumlah_harga');
             $table->integer('kode');
-            $table->string('metodepembayaran');
-            $table->string('alamat');
+            $table->string('metodepembayaran')->nullable();
+            $table->string('alamat')->nullable();
             $table->date('tanggal');
             $table->string('status');
 

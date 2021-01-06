@@ -53,7 +53,7 @@
                 <ul class="nav" id="main-menu">
 
                 <li>
-                        <a class="active-menu waves-effect waves-dark" href="{{url('/admin/index')}}"><i class="fas fa-dashboard"></i> Dashboard</a>
+                        <a  href="{{url('/admin/index')}}"><i class="fas fa-dashboard"></i> Dashboard</a>
                     </li>
 
 					<li>
@@ -91,9 +91,9 @@
 
 
                            </div>
-                           <div class="card-action">
+                           {{-- <div class="card-action">
                                 <a href="{{url('/konsumen/add')}}" class="btn btn-danger"><i class="fa fa-plus p-r-5">  Konsumen</i></a>
-                           </div>
+                           </div> --}}
                            <div class="card-content">
                                <div class="table-responsive">
                                <table id="datatables" class="table table-bordered table-hover table-striped">

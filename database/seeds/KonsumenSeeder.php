@@ -12,9 +12,9 @@ class KonsumenSeeder extends Seeder
     public function run()
     {
         konsumen::create([
-            'name' => 'Yoga',
+            'name' => 'Yoga Rizki Pratama',
             'email' => 'yoga@gmail.com',
-            'password' => bcrypt('Yoga123'),
+            'password' => bcrypt('yoga'),
             'alamat' => 'Jl.lohbener',
             'tanggal_lahir' => '1999-08-17',
             'noHp' => '0899654321'

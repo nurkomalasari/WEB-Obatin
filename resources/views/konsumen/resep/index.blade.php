@@ -119,7 +119,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($reseps as $resep)
+
                                                     <tr>
                                                         <td>{{$resep->id}}</td>
                                                         <td>{{$resep->konsumen->name}}</td>
@@ -141,7 +141,7 @@
                                                             <a href="resep/hapus/{{ $resep->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                                         </td> --}}
                                                     </tr>
-                                                    @endforeach
+
 
 
 

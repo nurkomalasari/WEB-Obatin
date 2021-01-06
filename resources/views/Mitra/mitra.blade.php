@@ -7,7 +7,9 @@
     <link href="{{asset('assets/img/obatin.png') }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
+    <link rel="stylesheet" href="{{asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Bootstrap Styles-->
     <link href="{{asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -186,6 +188,7 @@
 
     <!-- Custom Js -->
     <script src="{{asset('assets/js/custom-scripts.js') }}"></script>
+    @include('sweet::alert')
 
 
 </body>
