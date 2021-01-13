@@ -50,10 +50,11 @@ class ResepController extends Controller
     }
     public function index()
     {
-        $resep = Resep::All();
+        $reseps = Resep::with('konsumen')->get();
+        $konsumens = Konsumen::all();
+        $konsumens = Konsumen::select('id', 'name')->get();
 
-
-        return view('Mitra.resep.index',compact('resep'));
+        return view('Mitra.resep.index',compact('reseps', 'konsumens'));
     }
     public function edit($id)
     {

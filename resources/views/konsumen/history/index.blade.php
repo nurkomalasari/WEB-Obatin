@@ -41,7 +41,7 @@
     <?php
     $pesanan = \App\Pesanan::where('id_konsumen', Auth::guard('konsumen')->user()->id)->where('status', 0)->first();
     if (!empty($pesanan)) {
-       $notif = \App\Detailpesanan::where('id_pemesanan', $pesanan->id)->count();
+       $notif = \App\DetailPesanan::where('id_pemesanan', $pesanan->id)->count();
 
 
 

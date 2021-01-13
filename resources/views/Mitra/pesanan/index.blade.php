@@ -120,8 +120,8 @@
                                <table id="datatables" class="table table-bordered table-hover table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>No</th>
-                            <th>Konsumen</th>
+                            <th>Id Pemesanan</th>
+                            {{-- <th>Konsumen</th> --}}
                             <th>Jumlah Harga</th>
                             <th>Metode Pembayaran</th>
                             <th>Alamat</th>
@@ -139,7 +139,7 @@
                             <tr>
 
                                 <td>{{$p->id}}</td>
-                                <td>{{$p->id_konsumen}}</td>
+                                {{-- <td>{{$p->konsumen->name}}</td> --}}
                                 <td>{{$p->jumlah_harga}}</td>
                                 <td>{{$p->metodepembayaran}}</td>
                                 <td>{{$p->alamat}}</td>

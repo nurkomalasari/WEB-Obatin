@@ -13,4 +13,10 @@ class Resep extends Model
     public function konsumen(){
     	return $this->belongsTo(Konsumen::class,'id');
     }
+
+    // public function konsumen(){
+    // 	return $this->belongsTo(Konsumen::class,'id')->withDefault([
+    //         'name' => 'name',
+    //     ]);
+    // }
 }

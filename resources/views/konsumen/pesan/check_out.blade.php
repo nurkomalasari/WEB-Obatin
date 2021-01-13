@@ -105,6 +105,7 @@
                    <div class="col-md-8">
 
                        <h4><i class="fa fa-shopping-cart"></i>Check Out</h4>
+                       @if(!empty($pesanan))
                        <table class="table table-striped">
                         <thead>
                             <tr>
@@ -176,6 +177,7 @@
                         </thead>
 
                     </table>
+                    @endif
                  </div>
                </div>
            </div>
@@ -197,7 +199,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-newsletter" data-aos="fade-up">
+    {{-- <div class="footer-newsletter" data-aos="fade-up">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -209,7 +211,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="footer-top">
       <div class="container">

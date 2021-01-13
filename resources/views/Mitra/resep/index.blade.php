@@ -108,7 +108,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
+                                    {{-- <th>Nama</th> --}}
                                     <th>Resep</th>
                                     <th>Keterangan</th>
                                     <th>Balasan</th>
@@ -120,28 +120,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($resep as $rs)
+                                @foreach($reseps as $resep)
                                     <tr>
 
 
-                                <td>{{$rs->id}}</td>
-                                <td>{{$rs->konsumen->name}}</td>
-                                <td><img width="50px" src="{{ url('/gambar_obat/'.$rs->resep) }}"></td>
+                                <td>{{$resep->id}}</td>
+                                {{-- <td>{{$resep->konsumen->name}}</td> --}}
+                                <td><img width="50px" src="{{ url('/gambar_obat/'.$resep->resep) }}"></td>
 
-                                <td>{{$rs->keterangan}}</td>
+                                <td>{{$resep->keterangan}}</td>
 
                                 <td>
-                                    @if ($rs->balasan==1)
+                                    @if ($resep->balasan==1)
                                     <span class="badge" style="background-color: green">Resep yang anda minta Tersedia. Silahkan datang ke Apotek </span>
 
-                                    @elseif($rs->balasan==2)
+                                    @elseif($resep->balasan==2)
                                     <span class="badge" style="background-color: red">Resep yang anda minta tidak tersedia di Apotek</span>
                                     @endif
                                 </td>
 
                                 <td>
-                                    <a href="resep/edit/{{ $rs->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
-                                    <a href="resep/hapus/{{ $rs->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="resep/edit/{{ $resep->id }}"class="btn btn-warning" ><i class="fa fa-edit"></i></a>
+                                    <a href="resep/hapus/{{ $resep->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
 

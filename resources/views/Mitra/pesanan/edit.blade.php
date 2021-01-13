@@ -103,6 +103,17 @@
                                 @csrf
                                 <div class="box-body">
 
+                                    <div class="form-group">
+
+                                        <input type="text" readonly="readonly" name="name" class="form-control"value="{{ $pesanan->konsumen->name }}" >
+                                        @if($errors->has('name'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('name')}}
+                                            </div>
+                                        @endif
+
+                                    </div>
+
                                 <div class="form-group">
 
                                         <input type="hidden" name="id_konsumen" class="form-control" placeholder="ID Konsumen" value="{{$pesanan->id_konsumen}}" >

@@ -115,9 +115,7 @@
 
                                     </div>
                                 <div class="form-group">
-                                    <button type="button" data-toggle="modal" data-target="#modalFoto{{ $resep->id }}">
-                                        <img src="{{ asset('/gambar_obat/'.$resep->resep) }}" alt="" height="100px" weight="100px">
-                                    </button>
+                                        <img src="{{ asset('/gambar_obat/'.$resep->resep) }}" alt="" width="732px">
                                         <input type="hidden" name="resep" class="form-control"value="{{ $resep->resep }}" >
                                         @if($errors->has('resep'))
                                             <div class="text-danger">

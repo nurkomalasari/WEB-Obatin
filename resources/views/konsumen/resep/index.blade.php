@@ -103,6 +103,8 @@
                                         <div class="col-md-12">
 
                                             <h4><i class="fas fa-file-invoice"></i> Unggahan Resep</h4>
+                                             @if(!empty($resep))
+
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
@@ -119,10 +121,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($reseps as $resep)
+
 
                                                     <tr>
                                                         <td>{{$resep->id}}</td>
-                                                        <td>{{$resep->konsumen->name}}</td>
+                                                        <td>{{ Auth::guard('konsumen')->user()->name }}</td>
                                                         <td><img width="50px" src="{{ url('/gambar_obat/'.$resep->resep) }}"></td>
 
                                                         <td>{{$resep->keterangan}}</td>
@@ -142,12 +146,13 @@
                                                         </td> --}}
                                                     </tr>
 
-
+                                                    @endforeach
 
 
 
                                         </tbody>
                                     </table>
+                                    @endif
 
                                             {{-- <img src="{{ url('/gambar_obat/'.$obat->gambar) }}" style="width: 200px" class="card-img-top" alt="..."> --}}
                                         </div>
